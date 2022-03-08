@@ -16,6 +16,7 @@
 }
 .icon-class{
     width: 20%;
+    margin-top: 4%;
     align-self: right;
     object-fit: cover;
 }
@@ -30,44 +31,30 @@
     font-size: 50px;
 }
 
-aside {
-    flex: 1;
-    margin-left: 2%;
-    background-color: aqua;
-}
-
-/*.menu_nav{
-    text-align:left;
-    font-size: 20px;
-    display: block;
-    grid-column: 2 ;
-    grid-row: 2 ;
-}*/
-nav{
+.nav-header{
     grid-column: 2;
     grid-row: 2;
     display: flex;
     margin-bottom: 0%;
 }
 
-nav ul{
+.nav-header ul{
     padding: 0;
     list-style-type: none;
     display: flex;
     flex: 1;
 }
 
-nav li{
+.nav-header li{
     display: inline;
     text-align: left;
+    font-size: 150%;
     flex: 1;
 }
 
 body{
     background-color: rgb(255, 255, 198);
 }
-
-
 
 footer{
     width: 100%;
@@ -86,6 +73,27 @@ footer{
     /*grid-row: 4;*/
 }
 
+.nav-footer{
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    margin-bottom: 0%;
+}
+
+.nav-footer ul{
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex: 1;
+}
+
+.nav-footer li{
+    display: inline;
+    text-align: center;
+    font-size: 150%;
+    flex: 1;
+}
+
 main {
     margin-top: 2%;
     display: flex;
@@ -99,7 +107,7 @@ main {
     grid-template-columns: repeat(3, 1fr);
     gap: 2%;
     grid-auto-rows: minmax(200px, auto);
-    flex: 4;
+    width: 75%;
 }
 
 .elemento{
@@ -108,16 +116,55 @@ main {
     text-align: center;
     background-color: lightyellow;
 }
+
+.element-img{
+    width: 40%;
+    margin-top: 4%;
+    align-self: center;
+    object-fit: cover;
+}
+
+.element-title{
+    text-decoration: none;
+    color: black;
+}
   
 aside{
     flex: 1;
     margin-left: 2%;
     background-color: lightyellow;
 }
-  
-aside li{
-    padding-bottom: 10px;
+
+.aside-title{
+    font-family: cursive;
+    font-size: 150%;
 }
+
+.nav-aside{
+    display: flex;
+    margin-bottom: 0%;
+}
+
+.nav-aside ul{
+    padding: 0;
+    list-style-type: none;
+    display: inline;
+}
+
+.nav-aside li{
+    text-align: left;
+    font-size: 150%;
+    flex: 1;
+    margin-left: 5%;
+}
+
+.aside-ref{
+    font-family: cursive;
+    font-size: 70%;
+    text-decoration: none;
+    color: black;
+}
+
 /*.main{
     display: flex;
     grid-template-columns: 3fr 1fr;
