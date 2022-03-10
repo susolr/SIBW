@@ -123,6 +123,11 @@ main {
     align-self: center;
     object-fit: cover;
 }
+
+.img-foot{
+    text-decoration: none;
+    color: black;
+}
   
 aside{
     flex: 1;
