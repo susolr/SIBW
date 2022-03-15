@@ -21,6 +21,15 @@
             </nav>
         </div>
     </header>
+
+    <div id="comentarios-sidepanel" class="comentarios-sidepanel">
+        <a href="javascript:void(0)" class="cerrar-comentarios" onclick="esconderComentarios()">&times;</a>
+        <div class="comentario"> Comentario 1</div>
+        <div class="comentario"> Comentario 2</div>
+        <div class="comentario-oculto" id="comentario-oculto">Comentario oculto</div>
+        <button type="button" class="mostrar-comentario-oculto" onclick="mostrarComentarioOculto()">&#9776; Enviar</button>
+    </div>
+
     <main>
         <div class="producto">
            <h1>Saxofón Alto Yamaha</h1>
@@ -44,31 +53,17 @@
             El tamaño y la forma de las llaves se han modificado para mejorar la "sensación" al interpretarlo. </p>
             <p class="descripcion">Los nuevos tudeles V1 mejoran la resonancia, proporcionando una respuesta más rápida y cómoda. Finalmente, estos saxofones incluyen un soporte de unión entre campana y cuerpo con dos puntos de sujeción, mejorando su rendimiento. </p>
           <p class="descripcion">Características:</p>
-         <p>- Material: Latón</p>
-         <p>- Acabado: Plateado
-         <p>- Puladores o teclas de acción: Nácar blanco</p>
-         <p>- Tudel: Yamaha V1</p>
-         <p>- Grabado: Grabado a mano en campana y codo</p>
-         <p>- Estuche: Yamaha Custom rectangular con opción mochila</p>
-         <p>- Boquilla: El saxofón Custom EX se complementa con la boquilla de ebonita rediseñada por Yamaha. El baffle, la cámara y los railes han sido rediseñadas para una mayor proyección, así como una sonoridad suave y hermosa. La forma de la punta ha sido modificada para aumentar la comodidad y facilitar el control de la emisión.</p>
+            <p>- Material: Latón</p>
+            <p>- Acabado: Plateado
+            <p>- Puladores o teclas de acción: Nácar blanco</p>
+            <p>- Tudel: Yamaha V1</p>
+            <p>- Grabado: Grabado a mano en campana y codo</p>
+            <p>- Estuche: Yamaha Custom rectangular con opción mochila</p>
+            <p>- Boquilla: El saxofón Custom EX se complementa con la boquilla de ebonita rediseñada por Yamaha. El baffle, la cámara y los railes han sido rediseñadas para una mayor proyección, así como una sonoridad suave y hermosa. La forma de la punta ha sido modificada para aumentar la comodidad y facilitar el control de la emisión.</p>
+            
+            <a class="imprimir" href="producto_imprimir.html">Imprimir</a>
+            <button type="button" class="mostrar-comentarios" onclick="mostrarComentarios()">&#9776; Comentarios</button>
         </div>
-
-        <div class="comentarios-container" id="comentarios-container">
-            <div class="comentario">
-                <p>Comentario 1</p>
-            </div>
-            <div class="comentario">
-                <p>Comentario 2</p>
-            </div>
-            <div class="comentario-escondido">
-                <p>Comentario escondido</p>
-            </div>
-
-        </div>
-
-        <button type="mostrar_comentario" onclick="mostrarComentarios()">Mostrar comentarios
-        </button>   
-
 
         <aside>
             <div class="aside-title">Otros enlaces de interes</div>
