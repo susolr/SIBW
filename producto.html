@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Musicalia</title>
+    <title>Musicalia</title>
+    <link rel="stylesheet" href="producto_style.css">
+    <script src="scripts.js"></script>
 </head>
 <body>
-    <link rel="stylesheet" href="producto_style.css">
+    
     <header class="header-class">
         <div class="icon-class-div"><img class="icon-class" src="images/header_icon.png" alt="Icono de la tienda"></div>
         <div class="title-menu">
@@ -50,6 +52,22 @@
          <p>- Estuche: Yamaha Custom rectangular con opción mochila</p>
          <p>- Boquilla: El saxofón Custom EX se complementa con la boquilla de ebonita rediseñada por Yamaha. El baffle, la cámara y los railes han sido rediseñadas para una mayor proyección, así como una sonoridad suave y hermosa. La forma de la punta ha sido modificada para aumentar la comodidad y facilitar el control de la emisión.</p>
         </div>
+
+        <div class="comentarios-container" id="comentarios-container">
+            <div class="comentario">
+                <p>Comentario 1</p>
+            </div>
+            <div class="comentario">
+                <p>Comentario 2</p>
+            </div>
+            <div class="comentario-escondido">
+                <p>Comentario escondido</p>
+            </div>
+
+        </div>
+
+        <button type="mostrar_comentario" onclick="mostrarComentarios()">Mostrar comentarios
+        </button>   
 
 
         <aside>
