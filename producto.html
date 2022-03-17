@@ -24,16 +24,18 @@
 
     <div id="comentarios-sidepanel" class="comentarios-sidepanel">
         <a href="javascript:void(0)" class="cerrar-comentarios" onclick="esconderComentarios()">&times;</a>
-        <div class="comentario"> Comentario 1</div>
-        <div class="comentario"> Comentario 2</div>
-        <div class="comentario-oculto" id="comentario-oculto">Comentario oculto</div>
-        <form>
-            <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname"><br>
-            <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname">
+        <form id="formulario-comentario" class="formulario-comentario" action="./scripts.js:publicarComentarios()">
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre"><br>
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" name="email"><br>
+            <label for="coment">Comentario:</label><br>
+            <input type="text" id="coment" name="coment"><br>
+            <input type="submit" value="Submit">
+            <!--<button type="button" class="publicar-comentario" onclick="publicarComentario()">&#9776; Enviar</button>-->
         </form> 
-        <button type="button" class="mostrar-comentario-oculto" onclick="mostrarComentarioOculto()">&#9776; Enviar</button>
+        
+        
     </div>
 
     <main>
@@ -68,7 +70,7 @@
             <p>- Boquilla: El saxofón Custom EX se complementa con la boquilla de ebonita rediseñada por Yamaha. El baffle, la cámara y los railes han sido rediseñadas para una mayor proyección, así como una sonoridad suave y hermosa. La forma de la punta ha sido modificada para aumentar la comodidad y facilitar el control de la emisión.</p>
             
             <a class="imprimir" href="producto_imprimir.html">Imprimir</a>
-            <button type="button" class="mostrar-comentarios" onclick="mostrarComentarios()">&#9776; Comentarios</button>
+            <button type="button" class="mostrar-comentarios" onclick="mostrarComentariosPanel()">&#9776; Comentarios</button>
         </div>
 
         <aside>

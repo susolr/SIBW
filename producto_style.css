@@ -187,15 +187,20 @@ aside{
     padding: 4% 4% 4% 16%;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: black;
     display: block;
     transition: 0.3s;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: lightyellow;
   }
+
   
-  /* When you mouse over the navigation links, change their color */
+  /* When you mouse over the navigation links, change their color 
   .comentarios-sidepanel .comentario:hover {
     color: #f1f1f1;
-  }
+  }*/
   
   /* Position and style the close button (top right corner) */
   .comentarios-sidepanel .cerrar-comentarios {
@@ -235,7 +240,7 @@ aside{
     background-color: #444;
   }
 
-  .mostrar-comentario-oculto {
+  .publicar-comentario {
     font-size: 20px;
     cursor: pointer;
     background-color: #111;
@@ -244,20 +249,14 @@ aside{
     border: none;
   }
   
-  .mostrar-comentario-oculto:hover {
+  .publicar-comentario:hover {
     background-color: #444;
   } 
 
-  .comentarios-sidepanel .comentario-oculto {
-    padding: 4% 4% 4% 16%;
+
+.formulario-comentario{
     text-decoration: none;
     font-size: 25px;
     color: #818181;
-    display: none;
-    transition: 0.3s;
-  }
-  
-  /* When you mouse over the navigation links, change their color */
-  .comentarios-sidepanel .comentario-oculto:hover {
-    color: #f1f1f1;
-  }
+    margin-left: 25%;
+ }
