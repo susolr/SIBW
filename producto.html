@@ -24,15 +24,14 @@
 
     <div id="comentarios-sidepanel" class="comentarios-sidepanel">
         <a href="javascript:void(0)" class="cerrar-comentarios" onclick="esconderComentarios()">&times;</a>
-        <form id="formulario-comentario" class="formulario-comentario" action="./scripts.js:publicarComentarios()">
+        <form id="formulario-comentario" class="formulario-comentario">
             <label for="nombre">Nombre:</label><br>
             <input type="text" id="nombre" name="nombre"><br>
             <label for="email">Email:</label><br>
             <input type="text" id="email" name="email"><br>
             <label for="coment">Comentario:</label><br>
             <input type="text" id="coment" name="coment"><br>
-            <input type="submit" value="Submit">
-            <!--<button type="button" class="publicar-comentario" onclick="publicarComentario()">&#9776; Enviar</button>-->
+            <button type="button" class="publicar-comentario" onclick="publicarComentario()">&#9776; Enviar</button>
         </form> 
         
         
@@ -69,7 +68,7 @@
             <p>- Estuche: Yamaha Custom rectangular con opción mochila</p>
             <p>- Boquilla: El saxofón Custom EX se complementa con la boquilla de ebonita rediseñada por Yamaha. El baffle, la cámara y los railes han sido rediseñadas para una mayor proyección, así como una sonoridad suave y hermosa. La forma de la punta ha sido modificada para aumentar la comodidad y facilitar el control de la emisión.</p>
             
-            <a class="imprimir" href="producto_imprimir.html">Imprimir</a>
+            <a class="imprimir" href="producto_imprimir.html" target="_blank">Imprimir</a>
             <button type="button" class="mostrar-comentarios" onclick="mostrarComentariosPanel()">&#9776; Comentarios</button>
         </div>
 
