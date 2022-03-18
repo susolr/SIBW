@@ -1,5 +1,5 @@
 var comentarios = new Array();
-var palabras_prohibidas = ["pilotes"];
+var palabras_prohibidas = ["haiga", "asin", "gordo", "gorda", "zorra", "guarro", "guarra", "zorra", "gilipollas", "idiota"];
 var comentario1 = {
     autor:"Jesús",
     fecha: "17/03/2021",
@@ -141,7 +141,9 @@ function comprobarContenido(contenido){
 function filtrarContenido(contenido){
     var list = contenido.split(" ");
     for(let i = 0; i < list.length; i++){
-        var indice = palabras_prohibidas.indexOf(list[i]);
+        var palabra = list[i].toLowerCase();
+        console.log("Palabra: " + palabra);
+        var indice = palabras_prohibidas.indexOf(palabra);
         if(indice!=-1){
             var sust = "";
             for (let j = 0; j < list[i].length; j++){
