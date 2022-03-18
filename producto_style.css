@@ -168,8 +168,8 @@ aside{
 
 /***************************************************/
 /*Practica 2*/
- /* The sidepanel menu */
- .comentarios-sidepanel {
+/* The sidepanel menu */
+.comentarios-sidepanel {
     height: 60%; /* Specify a height */
     width: 0; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
@@ -180,11 +180,11 @@ aside{
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 5%; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
-  }
-  
-  /* The sidepanel links */
-  .comentarios-sidepanel .comentario {
-    padding: 4% 4% 4% 16%;
+}
+
+/* The sidepanel links */
+.comentarios-sidepanel .comentario {
+    padding: 2% 2% 2% 4%;
     text-decoration: none;
     font-size: 25px;
     color: black;
@@ -194,7 +194,19 @@ aside{
     margin-left: 2%;
     margin-right: 2%;
     background-color: lightyellow;
-  }
+}
+
+.comentario .label{
+    color:#818181;
+    text-align: left;
+    font-size: 25px;
+}
+
+.comentario .contenido{
+    padding: 2% 2% 2% 4%;
+    text-align: left;
+    font-size: 18px;
+}
 
   
   /* When you mouse over the navigation links, change their color 
@@ -203,30 +215,30 @@ aside{
   }*/
   
   /* Position and style the close button (top right corner) */
-  .comentarios-sidepanel .cerrar-comentarios {
+.comentarios-sidepanel .cerrar-comentarios {
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 36px;
     margin-left: 90%;
     color: #818181;
-  }
+}
   
   /* Style the button that is used to open the sidepanel */
-  .mostrar-comentarios {
+.mostrar-comentarios {
     font-size: 20px;
     cursor: pointer;
     background-color: #111;
     color: white;
     padding: 10px 15px;
     border: none;
-  }
-  
-  .mostrar-comentarios:hover {
+}
+
+.mostrar-comentarios:hover {
     background-color: #444;
-  }
-  
-  .imprimir{
+}
+
+.imprimir{
     font-size: 120%;
     text-decoration: none;
     cursor: pointer;
@@ -234,24 +246,24 @@ aside{
     color: white;
     padding: 10px 15px;
     border: none;
-  }
-  
-  .imprimir:hover {
-    background-color: #444;
-  }
+}
 
-  .publicar-comentario {
+.imprimir:hover {
+    background-color: #444;
+}
+
+.publicar-comentario {
     font-size: 20px;
     cursor: pointer;
     background-color: #111;
     color: white;
     padding: 10px 15px;
     border: none;
-  }
-  
-  .publicar-comentario:hover {
+}
+
+.publicar-comentario:hover {
     background-color: #444;
-  } 
+} 
 
 
 .formulario-comentario{
@@ -259,4 +271,9 @@ aside{
     font-size: 25px;
     color: #818181;
     margin-left: 25%;
- }
+    margin-bottom: 5%;
+}
+
+.formulario-comentario .publicar-comentario{
+    margin-top: 2%;
+}

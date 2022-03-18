@@ -30,7 +30,7 @@
             <label for="email">Email:</label><br>
             <input type="text" id="email" name="email"><br>
             <label for="coment">Comentario:</label><br>
-            <input type="text" id="coment" name="coment"><br>
+            <input type="text" id="coment" name="coment" oninput="filtrarContenido(this.value)"><br>
             <button type="button" class="publicar-comentario" onclick="publicarComentario()">&#9776; Enviar</button>
         </form> 
         

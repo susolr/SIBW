@@ -1,5 +1,5 @@
 var comentarios = new Array();
-
+var palabras_prohibidas = ["pilotes"];
 var comentario1 = {
     autor:"Jesús",
     fecha: "17/03/2021",
@@ -131,11 +131,30 @@ function comprobarEmail(email){
 }
 
 function comprobarNombre(nombre){
-    return true;
+    return (nombre!="");
 }
 
-function comprobarContenido(contenido){
-    return true;
+function comprobarContenido(contenido){    
+    return (contenido!="");
+}
+
+function filtrarContenido(contenido){
+    var list = contenido.split(" ");
+    for(let i = 0; i < list.length; i++){
+        var indice = palabras_prohibidas.indexOf(list[i]);
+        if(indice!=-1){
+            var sust = "";
+            for (let j = 0; j < list[i].length; j++){
+                sust = sust + "*";
+            }
+            list[i] = sust;
+        }
+    }
+    contenido = list[0];
+    for (let i = 1; i < list.length; i++){
+        contenido = contenido + " " + list[i];
+    }
+    document.getElementById('coment').value = contenido;
 }
 
 function mostrarError(mensaje){
@@ -146,8 +165,10 @@ function publicarComentario(){
     var email = document.getElementById('email').value;
     var errores = 0;
     var email_correcto = comprobarEmail(email);
+    var mensaje = "";
     if(!email_correcto){
-        mostrarError("El correo introducido es inadecuado");
+        mensaje = mensaje + "El correo introducido es inadecuado\n";
+        //mostrarError("El correo introducido es inadecuado");
         //document.getElementById('email').value = "";
         errores = errores + 1;
     }
@@ -156,18 +177,19 @@ function publicarComentario(){
     var nombre_correcto = comprobarNombre(nombre);
 
     if(!nombre_correcto){
-        mostrarError("El nombre está vacío");
-        //document.getElementById('email').value = "";
+        mensaje = mensaje + "El nombre está vacío\n";
+        //mostrarError("El nombre está vacío");
+        //document.getElementById('nombre').value = "";
         errores = errores + 1;
     }
     
-
     var content = document.getElementById('coment').value;
     var content_correcto = comprobarContenido(content);
 
     if(!content_correcto){
-        mostrarError("El correo introducido es inadecuado");
-        //document.getElementById('email').value = "";
+        mensaje = mensaje + "El comentario está vacío\n";
+        //mostrarError("El comentario está vacío");
+        //document.getElementById('coment').value = "";
         errores = errores + 1;
     }
 
@@ -185,6 +207,8 @@ function publicarComentario(){
         vaciarComentarios();
         mostrarComentarios();
     }
+    else{
+        mostrarError(mensaje);
+    }
     
-
 }
