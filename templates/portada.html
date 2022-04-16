@@ -1,92 +1,62 @@
-<!DOCTYPE html>
-<html>
-<head>
+{% extends "base.html"%}
+{% block head %}
 <title>Musicalia</title>
 <meta charset="UTF-8">
-</head>
-<body>
-    <link rel="stylesheet" href="styles/portada_style.css">
-    <header class="header-class">
-        <div class="icon-class-div"><img class="icon-class" src="images/header_icon.png" alt="Icono de la tienda"></div>
-        <div class="title-menu">
-            <div class="main-title">Musicalia</div>
-            <nav class="nav-header">
-                <ul>
-                    <li>Home</li>
-                    <li>Ofertas</li>
-                    <li>Más vendido</li>
-                </ul>
-                
-            </nav>
-        </div>
-    </header>
-    <main>
-        <div class="elementos">
-            <a class="elemento" href="producto.html">
-                <img class="element-img" src="images/saxo_soprano.png" alt="Saxofón soprano yamaha">
-                <p class="element-title">Saxofón soprano yamaha</p>
-            </a>
-            <a class="elemento" href="producto.html">
-                <img class="element-img" src="images/saxo_alto.png" alt="Saxofón alto yamaha">
-                <p class="element-title">Saxofón alto yamaha</p>
-            </a>
-            <a class="elemento" href="producto.html">
-                <img class="element-img" src="images/saxo_tenor.png" alt="Saxofón tenor yamaha">
-                <p class="element-title">Saxofón tenor yamaha</p>
-            </a>
-            <a class="elemento" href="producto.html">
-                <img class="element-img" src="images/saxo_baritono.png" alt="Saxofón baritono yamaha">
-                <p class="element-title">Saxofón baritono yamaha</p>
-            </a>
-            <a class="elemento" href="producto.html">
-                <img class="element-img" src="images/boquilla_selmer_c1.png" alt="Boquilla selmer C*">
-                <p class="element-title">Boquilla Selmer C*</p>
-            </a>
-            <a class="elemento" href="producto.html">
-                <img class="element-img" src="images/boquilla_selmer_concept.png" alt="Boquilla selmer concept">
-                <p class="element-title">Boquilla selmer concept</p>
-            </a>
-            <a class="elemento" href="producto.html">
-                <img class="element-img" src="images/boquilla_vandoren_al3.png" alt="Boquilla Vandoren AL-3">
-                <p class="element-title">Boquilla Vandoren AL-3</p>
-            </a>
-            <a class="elemento" href="producto.html">
-                <img class="element-img" src="images/canias_vandoren.png" alt="Cañas vandoren">
-                <p class="element-title">Cañas saxo alto</p>
-            </a>
-            <a class="elemento" href="producto.html">
-                <img class="element-img" src="images/brazadera_bg.png" alt="Brazadera BG">
-                <p class="element-title">Brazadera BG Saxo Alto</p>
-            </a>
-        </div>
+<link rel="stylesheet" href="styles/portada_style.css">
+{% endblock %}
+
+{% block main %}
+<div class="elementos">
+    <a class="elemento" href="producto.html">
+        <img class="element-img" src="images/saxo_soprano.png" alt="Saxofón soprano yamaha">
+        <p class="element-title">Saxofón soprano yamaha</p>
+    </a>
+    <a class="elemento" href="producto.html">
+        <img class="element-img" src="images/saxo_alto.png" alt="Saxofón alto yamaha">
+        <p class="element-title">Saxofón alto yamaha</p>
+    </a>
+    <a class="elemento" href="producto.html">
+        <img class="element-img" src="images/saxo_tenor.png" alt="Saxofón tenor yamaha">
+        <p class="element-title">Saxofón tenor yamaha</p>
+    </a>
+    <a class="elemento" href="producto.html">
+        <img class="element-img" src="images/saxo_baritono.png" alt="Saxofón baritono yamaha">
+        <p class="element-title">Saxofón baritono yamaha</p>
+    </a>
+    <a class="elemento" href="producto.html">
+        <img class="element-img" src="images/boquilla_selmer_c1.png" alt="Boquilla selmer C*">
+        <p class="element-title">Boquilla Selmer C*</p>
+    </a>
+    <a class="elemento" href="producto.html">
+        <img class="element-img" src="images/boquilla_selmer_concept.png" alt="Boquilla selmer concept">
+        <p class="element-title">Boquilla selmer concept</p>
+    </a>
+    <a class="elemento" href="producto.html">
+        <img class="element-img" src="images/boquilla_vandoren_al3.png" alt="Boquilla Vandoren AL-3">
+        <p class="element-title">Boquilla Vandoren AL-3</p>
+    </a>
+    <a class="elemento" href="producto.html">
+        <img class="element-img" src="images/canias_vandoren.png" alt="Cañas vandoren">
+        <p class="element-title">Cañas saxo alto</p>
+    </a>
+    <a class="elemento" href="producto.html">
+        <img class="element-img" src="images/brazadera_bg.png" alt="Brazadera BG">
+        <p class="element-title">Brazadera BG Saxo Alto</p>
+    </a>
+</div>
 
 
-        <aside>
-            <div class="aside-title">Otros enlaces de interes</div>
-            <nav class="nav-aside">
-                <ul>
-                    <li><a class="aside-ref" href="https://www.twitter.com">Twitter</a></li>
-                    <li><a class="aside-ref" href="https://www.facebook.com">Facebook</a></li>
-                    <li><a class="aside-ref" href="https://www.instagram.com">Instagram</a></li>
-                </ul>
-                
-            </nav>
-            
-        </aside>
+<aside>
+    <div class="aside-title">Otros enlaces de interes</div>
+    <nav class="nav-aside">
+        <ul>
+            <li><a class="aside-ref" href="https://www.twitter.com">Twitter</a></li>
+            <li><a class="aside-ref" href="https://www.facebook.com">Facebook</a></li>
+            <li><a class="aside-ref" href="https://www.instagram.com">Instagram</a></li>
+        </ul>
+        
+    </nav>
+    
+</aside>
 
-    </main>
-
-    <footer>
-        <nav class="nav-footer">
-            <ul>
-                <li>Contacto</li>
-                <li>Preguntas frecuentes</li>
-                <li>Sobre Nosotros</li>
-            </ul>
-            
-        </nav>
-        <p>Copyright - @Jesús López Rodríguez</p>
-    </footer>
-
-</body>
-</html> 
+{% endblock %}

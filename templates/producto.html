@@ -1,105 +1,58 @@
-<!DOCTYPE html>
-<html>
-<head>
+{% extends "base.html"%}
+{% block head %}
     <title>Musicalia</title>
     <link rel="stylesheet" href="styles/producto_style.css">
-    <script src="scripts.js"></script>
+    <script src="scripts/scripts.js"></script>
     <meta charset="UTF-8">
-</head>
-<body>
-    
-    <header class="header-class">
-        <div class="icon-class-div"><img class="icon-class" src="images/header_icon.png" alt="Icono de la tienda"></div>
-        <div class="title-menu">
-            <div class="main-title">Musicalia</div>
-            <nav class="nav-header">
-                <ul>
-                    <li>Home</li>
-                    <li>Ofertas</li>
-                    <li>Más vendido</li>
-                </ul>
-                
-            </nav>
-        </div>
-    </header>
+{% endblock %}
 
-    <div id="comentarios-sidepanel" class="comentarios-sidepanel">
-        <a href="javascript:void(0)" class="cerrar-comentarios" onclick="esconderComentarios()">&times;</a>
-        <form id="formulario-comentario" class="formulario-comentario">
-            <label for="nombre">Nombre:</label><br>
-            <input type="text" id="nombre" name="nombre"><br>
-            <label for="email">Email:</label><br>
-            <input type="text" id="email" name="email"><br>
-            <label for="coment">Comentario:</label><br>
-            <input type="text" id="coment" name="coment" oninput="filtrarContenido(this.value)"><br>
-            <button type="button" class="publicar-comentario" onclick="publicarComentario()">&#9776; Enviar</button>
-        </form> 
-        
-        
+{% block main %}
+<div class="producto">
+    <h1>Saxofón Alto Yamaha</h1>
+
+    <h3>Modelo Custom</h3>
+
+    <div class="img-container">
+        <div class="img-prod">
+            <img class="img-prod-2" src="images/saxo_alto.png" alt="Saxo alto yamaha custom"> 
+            <p class="img-foot">Saxofón alto yamaha custom</p>
+        </div>
+        <div class="img-prod">
+            <img class="img-prod-2" src="images/saxo_alto_custom.png" alt="Saxo alto yamaha custom">
+            <p class="img-foot">Saxofón alto yamaha custom negro</p> 
+        </div>
     </div>
 
-    <main>
-        <div class="producto">
-           <h1>Saxofón Alto Yamaha</h1>
+    <p class="descripcion">Modelo dorado y negro del popular YAS-875EX ,  el saxofón insignia del fabricante japonés para los músicos clásicos más exigentes!</p> 
+    <p class="descripcion">El nuevo saxofón alto Yamaha YAS-875EXS marca un gran avance en el diseño de saxofones, ofreciendo a los saxofonistas una gran cantidad de nuevas posibilidades musicales. Custom 875EX ha sido diseñado en colaboración con los intérpretes más talentosos del mundo, incluyendo a Nobuya Sugawa, Jean-Yves Fourmeau y Otis Murphy. Gracias a su inestimable aportación, Yamaha ha sido capaz de crear un instrumento que suena increíble y que ofrece al intérprete una total libertad expresiva.
+    La serie de saxofones altos Custom 875 de Yamaha mejoran la acción, son saxos ágiles y rápidos, con un amplio rango dinámico. Mantienen una equilibrada proyección traducida en un bello timbre. Pronto notarás la profundidad y la delicadeza de su sonido, simplemente increíble. Además, este saxofón alto aporta una enorme flexibilidad a la hora de interpretar cualquier género musical.
+    El tamaño y la forma de las llaves se han modificado para mejorar la "sensación" al interpretarlo. </p>
+    <p class="descripcion">Los nuevos tudeles V1 mejoran la resonancia, proporcionando una respuesta más rápida y cómoda. Finalmente, estos saxofones incluyen un soporte de unión entre campana y cuerpo con dos puntos de sujeción, mejorando su rendimiento. </p>
+    <p class="descripcion">Características:</p>
+    <p>- Material: Latón</p>
+    <p>- Acabado: Plateado
+    <p>- Puladores o teclas de acción: Nácar blanco</p>
+    <p>- Tudel: Yamaha V1</p>
+    <p>- Grabado: Grabado a mano en campana y codo</p>
+    <p>- Estuche: Yamaha Custom rectangular con opción mochila</p>
+    <p>- Boquilla: El saxofón Custom EX se complementa con la boquilla de ebonita rediseñada por Yamaha. El baffle, la cámara y los railes han sido rediseñadas para una mayor proyección, así como una sonoridad suave y hermosa. La forma de la punta ha sido modificada para aumentar la comodidad y facilitar el control de la emisión.</p>
+    
+    <a class="imprimir" href="producto_imprimir.html" target="_blank">Imprimir</a>
+    <button type="button" class="mostrar-comentarios" onclick="mostrarComentariosPanel()">&#9776; Comentarios</button>
+</div>
 
-           <h3>Modelo Custom</h3>
+<aside>
+    <div class="aside-title">Otros enlaces de interes</div>
+    <nav class="nav-aside">
+        <ul>
+            <li><a class="aside-ref" href="https://www.twitter.com">Twitter</a></li>
+            <li><a class="aside-ref" href="https://www.facebook.com">Facebook</a></li>
+            <li><a class="aside-ref" href="https://www.instagram.com">Instagram</a></li>
+            <li><a class="aside-ref" href="producto_imprimir.html">Imprimir</a></li>
+        </ul>
+        
+    </nav>
+    
+</aside>
 
-           <div class="img-container">
-               <div class="img-prod">
-                   <img class="img-prod-2" src="images/saxo_alto.png" alt="Saxo alto yamaha custom"> 
-                   <p class="img-foot">Saxofón alto yamaha custom</p>
-                </div>
-               <div class="img-prod">
-                   <img class="img-prod-2" src="images/saxo_alto_custom.png" alt="Saxo alto yamaha custom">
-                   <p class="img-foot">Saxofón alto yamaha custom negro</p> 
-                </div>
-           </div>
-
-           <p class="descripcion">Modelo dorado y negro del popular YAS-875EX ,  el saxofón insignia del fabricante japonés para los músicos clásicos más exigentes!</p> 
-           <p class="descripcion">El nuevo saxofón alto Yamaha YAS-875EXS marca un gran avance en el diseño de saxofones, ofreciendo a los saxofonistas una gran cantidad de nuevas posibilidades musicales. Custom 875EX ha sido diseñado en colaboración con los intérpretes más talentosos del mundo, incluyendo a Nobuya Sugawa, Jean-Yves Fourmeau y Otis Murphy. Gracias a su inestimable aportación, Yamaha ha sido capaz de crear un instrumento que suena increíble y que ofrece al intérprete una total libertad expresiva.
-            La serie de saxofones altos Custom 875 de Yamaha mejoran la acción, son saxos ágiles y rápidos, con un amplio rango dinámico. Mantienen una equilibrada proyección traducida en un bello timbre. Pronto notarás la profundidad y la delicadeza de su sonido, simplemente increíble. Además, este saxofón alto aporta una enorme flexibilidad a la hora de interpretar cualquier género musical.
-            El tamaño y la forma de las llaves se han modificado para mejorar la "sensación" al interpretarlo. </p>
-            <p class="descripcion">Los nuevos tudeles V1 mejoran la resonancia, proporcionando una respuesta más rápida y cómoda. Finalmente, estos saxofones incluyen un soporte de unión entre campana y cuerpo con dos puntos de sujeción, mejorando su rendimiento. </p>
-          <p class="descripcion">Características:</p>
-            <p>- Material: Latón</p>
-            <p>- Acabado: Plateado
-            <p>- Puladores o teclas de acción: Nácar blanco</p>
-            <p>- Tudel: Yamaha V1</p>
-            <p>- Grabado: Grabado a mano en campana y codo</p>
-            <p>- Estuche: Yamaha Custom rectangular con opción mochila</p>
-            <p>- Boquilla: El saxofón Custom EX se complementa con la boquilla de ebonita rediseñada por Yamaha. El baffle, la cámara y los railes han sido rediseñadas para una mayor proyección, así como una sonoridad suave y hermosa. La forma de la punta ha sido modificada para aumentar la comodidad y facilitar el control de la emisión.</p>
-            
-            <a class="imprimir" href="producto_imprimir.html" target="_blank">Imprimir</a>
-            <button type="button" class="mostrar-comentarios" onclick="mostrarComentariosPanel()">&#9776; Comentarios</button>
-        </div>
-
-        <aside>
-            <div class="aside-title">Otros enlaces de interes</div>
-            <nav class="nav-aside">
-                <ul>
-                    <li><a class="aside-ref" href="https://www.twitter.com">Twitter</a></li>
-                    <li><a class="aside-ref" href="https://www.facebook.com">Facebook</a></li>
-                    <li><a class="aside-ref" href="https://www.instagram.com">Instagram</a></li>
-                    <li><a class="aside-ref" href="producto_imprimir.html">Imprimir</a></li>
-                </ul>
-                
-            </nav>
-            
-        </aside>
-
-    </main>
-
-    <footer>
-        <nav class="nav-footer">
-            <ul>
-                <li>Contacto</li>
-                <li>Preguntas frecuentes</li>
-                <li>Sobre Nosotros</li>
-            </ul>
-            
-        </nav>
-        <p>Copyright - @Jesús López Rodríguez</p>
-    </footer>
-
-</body>
-</html> 
+{% endblock %}

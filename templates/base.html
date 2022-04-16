@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% block head %}
+<title>Musicalia</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="styles/portada_style.css">
+{% endblock %}
+</head>
+<body>
+    <header class="header-class">
+        <div class="icon-class-div"><img class="icon-class" src="images/header_icon.png" alt="Icono de la tienda"></div>
+        <div class="title-menu">
+            <div class="main-title">Musicalia</div>
+            <nav class="nav-header">
+                <ul>
+                    <li>Home</li>
+                    <li>Ofertas</li>
+                    <li>Más vendido</li>
+                </ul>
+                
+            </nav>
+        </div>
+    </header>
+    <main>
+        {% block main %}
+        <p> MAIN </p>
+        {% endblock %}
+    </main>
+
+    <footer>
+        <nav class="nav-footer">
+            <ul>
+                <li>Contacto</li>
+                <li>Preguntas frecuentes</li>
+                <li>Sobre Nosotros</li>
+            </ul>
+            
+        </nav>
+        <p>Copyright - @Jesús López Rodríguez</p>
+    </footer>
+
+</body>
+</html> 
