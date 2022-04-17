@@ -6,14 +6,14 @@ CREATE TABLE productos(
 
 CREATE TABLE imagenes(
   id INT AUTO_INCREMENT PRIMARY KEY,
-  nombre VARCHAR(100),
-  img_principal VARCHAR(100)
+  producto INT FOREIGN KEY REFERENCES productos(id),
+  recurso VARCHAR(100)
 )
 
 CREATE TABLE contenido(
   id INT AUTO_INCREMENT PRIMARY KEY,
-  nombre VARCHAR(100),
-  img_principal VARCHAR(100)
+  producto INT FOREIGN KEY REFERENCES productos(id),
+  texto VARCHAR(1000)
 )
 
 CREATE TABLE comentarios(
@@ -25,8 +25,7 @@ CREATE TABLE comentarios(
 
 CREATE TABLE palabrasprohibidas(
   id INT AUTO_INCREMENT PRIMARY KEY,
-  nombre VARCHAR(100),
-  img_principal VARCHAR(100)
+  palabra VARCHAR(100)
 )
 
 
