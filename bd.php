@@ -1,4 +1,9 @@
 <?php
+
+  function getListaProductos(){
+    
+  }
+
   function getEvento($idEv) {
   
     $mysqli = new mysqli("mysql", "coronavirus", "covid19", "SIBW");
