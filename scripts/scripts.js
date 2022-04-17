@@ -1,5 +1,5 @@
 var comentarios = new Array();
-var palabras_prohibidas = ["haiga", "asin", "gordo", "gorda", "zorra", "guarro", "guarra", "zorra", "gilipollas", "idiota"];
+var palabras_prohibidas = ["haiga", "asin", "gordo", "gorda", "zorra", "guarro", "guarra", "perra", "gilipollas", "idiota"];
 var comentario1 = {
     autor:"Jesús",
     fecha: "17/03/2021",

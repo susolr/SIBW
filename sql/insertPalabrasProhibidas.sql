@@ -1,0 +1,10 @@
+INSERT INTO `palabrasprohibidas`(`palabra`) VALUES ('haiga');
+INSERT INTO `palabrasprohibidas`(`palabra`) VALUES ('asin');
+INSERT INTO `palabrasprohibidas`(`palabra`) VALUES ('gordo');
+INSERT INTO `palabrasprohibidas`(`palabra`) VALUES ('gorda');
+INSERT INTO `palabrasprohibidas`(`palabra`) VALUES ('zorra');
+INSERT INTO `palabrasprohibidas`(`palabra`) VALUES ('guarro');
+INSERT INTO `palabrasprohibidas`(`palabra`) VALUES ('guarra');
+INSERT INTO `palabrasprohibidas`(`palabra`) VALUES ('perra');
+INSERT INTO `palabrasprohibidas`(`palabra`) VALUES ('gilipollas');
+INSERT INTO `palabrasprohibidas`(`palabra`) VALUES ('idiota');
