@@ -4,8 +4,9 @@
 
   $loader = new \Twig\Loader\FilesystemLoader('templates');
   $twig = new \Twig\Environment($loader);
+  $bd=new bd;
 
-  $lista = getListaProductos();
+  $lista = $bd->getListaProductos();
   
-  echo $twig->render('portada.html', []);
+  echo $twig->render('portada.html', ['productos'=>$lista]);
 ?>

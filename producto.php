@@ -1,21 +1,14 @@
 <?php
   require_once "/usr/local/lib/php/vendor/autoload.php";
+  include("bd.php");
 
   $loader = new \Twig\Loader\FilesystemLoader('templates');
   $twig = new \Twig\Environment($loader);
   
-  $nombreEvento = "Nombre por defecto";
-  $fechaEvento = "Fecha por defecto";
   
-  if ($_GET['ev'] == 1) {
-    $nombreEvento = "Evento 1";
-    $fechaEvento = "Miércoles";
-  } else if ($_GET['ev'] == 2) {
-    $nombreEvento = "Evento 2";
-    $fechaEvento = "Jueves";    
-  }
+  $id = $_GET['id'];
+  $bd=new bd;
+  $producto = $bd->getProducto($id);
   
-  
-  
-  echo $twig->render('producto.html', ['nombre' => $nombreEvento, 'fecha' => $fechaEvento]);
+  echo $twig->render('producto.html', ['producto' => $producto]);
 ?>

@@ -8,9 +8,13 @@
 
 {% block main %}
 <div class="producto">
+
     <h1>Saxofón Alto Yamaha</h1>
+    
+    <h1>{{ producto.nombre }}</h1>
 
     <h3>Modelo Custom</h3>
+    <h3>{{ producto.subtitulo }}</h3>
 
     <div class="img-container">
         <div class="img-prod">
@@ -21,7 +25,16 @@
             <img class="img-prod-2" src="images/saxo_alto_custom.png" alt="Saxo alto yamaha custom">
             <p class="img-foot">Saxofón alto yamaha custom negro</p> 
         </div>
+        <div class="img-prod">
+            <img class="img-prod-2" src={{ producto.img_1 }} alt={{ producto.nombre }}> 
+            <p class="img-foot">{{ producto.nombre }}</p>
+        </div>
+        <div class="img-prod">
+            <img class="img-prod-2" src={{ producto.img_2 }} alt={{ producto.nombre }}>
+            <p class="img-foot">{{ producto.nombre }}</p> 
+        </div>
     </div>
+    <p class="descripcion"> {{ producto.contenido }} </p>
 
     <p class="descripcion">Modelo dorado y negro del popular YAS-875EX ,  el saxofón insignia del fabricante japonés para los músicos clásicos más exigentes!</p> 
     <p class="descripcion">El nuevo saxofón alto Yamaha YAS-875EXS marca un gran avance en el diseño de saxofones, ofreciendo a los saxofonistas una gran cantidad de nuevas posibilidades musicales. Custom 875EX ha sido diseñado en colaboración con los intérpretes más talentosos del mundo, incluyendo a Nobuya Sugawa, Jean-Yves Fourmeau y Otis Murphy. Gracias a su inestimable aportación, Yamaha ha sido capaz de crear un instrumento que suena increíble y que ofrece al intérprete una total libertad expresiva.
@@ -37,7 +50,7 @@
     <p>- Estuche: Yamaha Custom rectangular con opción mochila</p>
     <p>- Boquilla: El saxofón Custom EX se complementa con la boquilla de ebonita rediseñada por Yamaha. El baffle, la cámara y los railes han sido rediseñadas para una mayor proyección, así como una sonoridad suave y hermosa. La forma de la punta ha sido modificada para aumentar la comodidad y facilitar el control de la emisión.</p>
     
-    <a class="imprimir" href="producto_imprimir.html" target="_blank">Imprimir</a>
+    <a class="imprimir" href="producto_imprimir.php" target="_blank">Imprimir</a>
     <button type="button" class="mostrar-comentarios" onclick="mostrarComentariosPanel()">&#9776; Comentarios</button>
 </div>
 
@@ -48,7 +61,6 @@
             <li><a class="aside-ref" href="https://www.twitter.com">Twitter</a></li>
             <li><a class="aside-ref" href="https://www.facebook.com">Facebook</a></li>
             <li><a class="aside-ref" href="https://www.instagram.com">Instagram</a></li>
-            <li><a class="aside-ref" href="producto_imprimir.html">Imprimir</a></li>
         </ul>
         
     </nav>

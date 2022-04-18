@@ -7,44 +7,13 @@
 
 {% block main %}
 <div class="elementos">
-    <a class="elemento" href="producto.html">
-        <img class="element-img" src="images/saxo_soprano.png" alt="Saxofón soprano yamaha">
-        <p class="element-title">Saxofón soprano yamaha</p>
-    </a>
-    <a class="elemento" href="producto.html">
-        <img class="element-img" src="images/saxo_alto.png" alt="Saxofón alto yamaha">
-        <p class="element-title">Saxofón alto yamaha</p>
-    </a>
-    <a class="elemento" href="producto.html">
-        <img class="element-img" src="images/saxo_tenor.png" alt="Saxofón tenor yamaha">
-        <p class="element-title">Saxofón tenor yamaha</p>
-    </a>
-    <a class="elemento" href="producto.html">
-        <img class="element-img" src="images/saxo_baritono.png" alt="Saxofón baritono yamaha">
-        <p class="element-title">Saxofón baritono yamaha</p>
-    </a>
-    <a class="elemento" href="producto.html">
-        <img class="element-img" src="images/boquilla_selmer_c1.png" alt="Boquilla selmer C*">
-        <p class="element-title">Boquilla Selmer C*</p>
-    </a>
-    <a class="elemento" href="producto.html">
-        <img class="element-img" src="images/boquilla_selmer_concept.png" alt="Boquilla selmer concept">
-        <p class="element-title">Boquilla selmer concept</p>
-    </a>
-    <a class="elemento" href="producto.html">
-        <img class="element-img" src="images/boquilla_vandoren_al3.png" alt="Boquilla Vandoren AL-3">
-        <p class="element-title">Boquilla Vandoren AL-3</p>
-    </a>
-    <a class="elemento" href="producto.html">
-        <img class="element-img" src="images/canias_vandoren.png" alt="Cañas vandoren">
-        <p class="element-title">Cañas saxo alto</p>
-    </a>
-    <a class="elemento" href="producto.html">
-        <img class="element-img" src="images/brazadera_bg.png" alt="Brazadera BG">
-        <p class="element-title">Brazadera BG Saxo Alto</p>
-    </a>
+    {% for item in productos %}
+        <a class="elemento" href="producto.php?id={{item.id}}">
+            <img class="element-img" src={{ item.img_principal }} alt={{ item.nombre }}>
+            <p class="element-title">{{ item.nombre }}</p>
+        </a>
+    {% endfor %}
 </div>
-
 
 <aside>
     <div class="aside-title">Otros enlaces de interes</div>
