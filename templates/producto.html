@@ -6,6 +6,14 @@
     <meta charset="UTF-8">
 {% endblock %}
 
+{% block comentarios %}
+    <div id="comentarios-sidepanel" class="comentarios-sidepanel">
+        <a href="javascript:void(0)" class="cerrar-comentarios" onclick="esconderComentarios()">&times;</a>
+        <div class="comentario-oculto" id="comentario-oculto">Comentario oculto</div>
+        <button type="button" class="mostrar-comentario-oculto" onclick="mostrarComentarioOculto()">&#9776; Enviar</button>
+    </div>
+{% endblock %}
+
 {% block main %}
 <div class="producto">
     
