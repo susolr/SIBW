@@ -8,7 +8,7 @@ create database SIBW;
 # Para dar permisos a esa base de datos a un usuario (y no entrar como root, que es peligroso)
 
 CREATE USER 'jesuslr'@'%' IDENTIFIED BY '150599jlr';
-GRANT create, delete, drop, index, insert, select, update ON SIBW.* TO 'jesuslr'@'%';
+GRANT create, delete, drop, index, insert, select, update, alter, references ON SIBW.* TO 'jesuslr'@'%';
 
 # Para salir del cliente MySQL
 exit

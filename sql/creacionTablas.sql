@@ -14,7 +14,8 @@ CREATE TABLE imagenes(
 CREATE TABLE contenido(
   id INT AUTO_INCREMENT PRIMARY KEY,
   producto INT,
-  texto VARCHAR(1000),
+  subtitulo VARCHAR(100),
+  texto TEXT,
   FOREIGN KEY (producto) REFERENCES productos(id)
 )
 

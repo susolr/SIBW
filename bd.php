@@ -90,7 +90,7 @@
       $contenido = "Contenido no disponible";
       if ($res->num_rows > 0) {
         $row = $res->fetch_assoc();
-        $contenido = $row['contenido'];
+        $contenido = $row['texto'];
         $subtitulo = $row['subtitulo'];
       }
 

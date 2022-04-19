@@ -23,7 +23,7 @@
             <p class="img-foot">{{ producto.nombre }}</p> 
         </div>
     </div>
-    <p> {{ producto.contenido }} </p>
+    <p> {{ producto.contenido|nl2br }} </p>
    
     <a class="imprimir" href="producto_imprimir.php" target="_blank">Imprimir</a>
     <button type="button" class="mostrar-comentarios" onclick="mostrarComentariosPanel()">&#9776; Comentarios</button>
