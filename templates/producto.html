@@ -7,11 +7,20 @@
 {% endblock %}
 
 {% block comentarios %}
-    <div id="comentarios-sidepanel" class="comentarios-sidepanel">
-        <a href="javascript:void(0)" class="cerrar-comentarios" onclick="esconderComentarios()">&times;</a>
-        <div class="comentario-oculto" id="comentario-oculto">Comentario oculto</div>
-        <button type="button" class="mostrar-comentario-oculto" onclick="mostrarComentarioOculto()">&#9776; Enviar</button>
-    </div>
+<div id="comentarios-sidepanel" class="comentarios-sidepanel">
+    <a href="javascript:void(0)" class="cerrar-comentarios" onclick="esconderComentarios()">&times;</a>
+    <form id="formulario-comentario" class="formulario-comentario">
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre"><br>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <label for="coment">Comentario:</label><br>
+        <input type="text" id="coment" name="coment" oninput="filtrarContenido(this.value)"><br>
+        <button type="button" class="publicar-comentario" onclick="publicarComentario()">&#9776; Enviar</button>
+    </form> 
+    
+    
+</div>
 {% endblock %}
 
 {% block main %}

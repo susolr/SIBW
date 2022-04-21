@@ -140,17 +140,21 @@ function comprobarContenido(contenido){
 }
 
 function filtrarContenido(contenido){
-    var peticion = XMLHttpRequest();
+    var peticion = new XMLHttpRequest();
+
     peticion.onreadystatechange = function(){
         if (peticion.readyState == 4 && peticion.status==200){
             palabras_prohibidas = JSON.parse(this.responseText);
+            console.log(palabras_prohibidas);
         }
     }
 
+    //peticion.open('GET', 'palabras_prohibidas.php', true);
     peticion.open('GET', 'funciones.php?id=1', true);
     peticion.send();
 
     var list = contenido.split(" ");
+    
     for(let i = 0; i < list.length; i++){
         var palabra = list[i].toLowerCase();
         console.log("Palabra: " + palabra);

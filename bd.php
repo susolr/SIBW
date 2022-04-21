@@ -119,8 +119,13 @@
     }
 
     function getPalabrasProhibidas(){
-	    	$res = $this->mysqli->query("SELECT palabra FROM palabrasprohibidas");
-	  	return $res;
+	    $res = $this->mysqli->query("SELECT palabra FROM palabrasprohibidas");
+      $arr = [];
+      while($row = $res->fetch_assoc()){
+        $arr[]= $row['palabra'];
+      }
+
+	  	return $arr;
     }
   }
 ?>
