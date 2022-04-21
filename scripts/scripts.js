@@ -145,7 +145,7 @@ function filtrarContenido(contenido){
     peticion.onreadystatechange = function(){
         if (peticion.readyState == 4 && peticion.status==200){
             palabras_prohibidas = JSON.parse(this.responseText);
-            console.log(palabras_prohibidas);
+            //console.log(palabras_prohibidas);
         }
     }
 
