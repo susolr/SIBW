@@ -1,6 +1,6 @@
  
 # Para conectar a nuestra base de datos (como root):
-mysql -h 127.0.0.1 -P 3306 -u root -p
+mysql -h 127.0.0.1 -P 3306 -u root -p tiger
 
 # Para crear una base de datos llamada SIBW
 create database SIBW;
