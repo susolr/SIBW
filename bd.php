@@ -51,12 +51,19 @@
 
     function getProducto ($idPro){
 
-      $stmt = $this->mysqli->prepare("SELECT nombre FROM productos WHERE id = ? ");
+      $stmt = $this->mysqli->prepare("SELECT nombre, subtitulo, texto FROM productos WHERE id = ? ");
       $stmt->bind_param("i", $idPro);
       $stmt->execute();
       $res = $stmt->get_result();
-      $row = $res->fetch_assoc();
-      $nombre = $row['nombre'];
+      $subtitulo = "Subtitulo no disponible";
+      $contenido = "Contenido no disponible";
+      if ($res->num_rows > 0) {
+        $row = $res->fetch_assoc();
+        $nombre = $row['nombre'];
+        $contenido = $row['texto'];
+        $subtitulo = $row['subtitulo'];
+      }
+      
       $stmt->close();
 
       $stmt = $this->mysqli->prepare("SELECT recurso FROM imagenes WHERE producto = ? ");
@@ -78,20 +85,6 @@
           $img_2 = $img_1;
         }
         
-      }
-
-      $stmt->close();
-
-      $stmt = $this->mysqli->prepare("SELECT subtitulo, texto FROM contenido WHERE producto = ? ");
-      $stmt->bind_param("i", $idPro);
-      $stmt->execute();
-      $res = $stmt->get_result();
-      $subtitulo = "Subtitulo no disponible";
-      $contenido = "Contenido no disponible";
-      if ($res->num_rows > 0) {
-        $row = $res->fetch_assoc();
-        $contenido = $row['texto'];
-        $subtitulo = $row['subtitulo'];
       }
 
       $stmt->close();
