@@ -1,6 +1,6 @@
 var comentarios = new Array();
 //var palabras_prohibidas = ["haiga", "asin", "gordo", "gorda", "zorra", "guarro", "guarra", "perra", "gilipollas", "idiota"];
-var palabras_prohibidas;
+var palabras_prohibidas = new Array();
 var comentario1 = {
     autor:"Jesús",
     fecha: "17/03/2021",
@@ -141,17 +141,20 @@ function comprobarContenido(contenido){
 
 function filtrarContenido(contenido){
     var peticion = new XMLHttpRequest();
-
-    peticion.onreadystatechange = function(){
-        if (peticion.readyState == 4 && peticion.status==200){
-            palabras_prohibidas = JSON.parse(this.responseText);
-            //console.log(palabras_prohibidas);
+    if(palabras_prohibidas.length === 0){
+        peticion.onreadystatechange = function(){
+            if (peticion.readyState == 4 && peticion.status==200){
+                palabras_prohibidas = JSON.parse(this.responseText);
+                console.log(palabras_prohibidas);
+            }
         }
-    }
+    
+        //peticion.open('GET', 'palabras_prohibidas.php', true);
+        peticion.open('GET', 'palabras_prohibidas.php', true);
+        peticion.send();
 
-    //peticion.open('GET', 'palabras_prohibidas.php', true);
-    peticion.open('GET', 'funciones.php?id=1', true);
-    peticion.send();
+    }
+    
 
     var list = contenido.split(" ");
     

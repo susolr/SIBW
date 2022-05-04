@@ -18,7 +18,7 @@ CREATE TABLE comentarios(
   producto INT,
   autor VARCHAR(100),
   fecha DATETIME,
-  texto VARCHAR(1000),
+  texto TEXT,
   FOREIGN KEY (producto) REFERENCES productos(id)
 )
 

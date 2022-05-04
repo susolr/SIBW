@@ -5,7 +5,7 @@ INSERT INTO `productos`(`nombre`, `img_principal`, `subtitulo`, `texto`) VALUES 
 -Lacado dorado
 -Incluye boquilla y estuche ligero con correas de función mochila'); 
 
-INSERT INTO `productos`(`nombre`, `img_principal`, `subtitulo`, `texto`) VALUES ('Saxofon alto yamaha','images/saxo_alto.png', 'Modelo dorado y negro del popular YAS-875EX ,  el saxofón insignia del fabricante japonés para los músicos clásicos más exigentes! El nuevo saxofón alto Yamaha YAS-875EXS marca un gran avance en el diseño de saxofones, ofreciendo a los saxofonistas una gran cantidad de nuevas posibilidades musicales. Custom 875EX ha sido diseñado en colaboración con los intérpretes más talentosos del mundo, incluyendo a Nobuya Sugawa, Jean-Yves Fourmeau y Otis Murphy. Gracias a su inestimable aportación, Yamaha ha sido capaz de crear un instrumento que suena increíble y que ofrece al intérprete una total libertad expresiva.
+INSERT INTO `productos`(`nombre`, `img_principal`, `subtitulo`, `texto`) VALUES ('Saxofon alto yamaha','images/saxo_alto.png', 'Modelo Custom', 'Modelo dorado y negro del popular YAS-875EX ,  el saxofón insignia del fabricante japonés para los músicos clásicos más exigentes! El nuevo saxofón alto Yamaha YAS-875EXS marca un gran avance en el diseño de saxofones, ofreciendo a los saxofonistas una gran cantidad de nuevas posibilidades musicales. Custom 875EX ha sido diseñado en colaboración con los intérpretes más talentosos del mundo, incluyendo a Nobuya Sugawa, Jean-Yves Fourmeau y Otis Murphy. Gracias a su inestimable aportación, Yamaha ha sido capaz de crear un instrumento que suena increíble y que ofrece al intérprete una total libertad expresiva.
     La serie de saxofones altos Custom 875 de Yamaha mejoran la acción, son saxos ágiles y rápidos, con un amplio rango dinámico. Mantienen una equilibrada proyección traducida en un bello timbre. Pronto notarás la profundidad y la delicadeza de su sonido, simplemente increíble. Además, este saxofón alto aporta una enorme flexibilidad a la hora de interpretar cualquier género musical.
     El tamaño y la forma de las llaves se han modificado para mejorar la "sensación" al interpretarlo. Los nuevos tudeles V1 mejoran la resonancia, proporcionando una respuesta más rápida y cómoda. Finalmente, estos saxofones incluyen un soporte de unión entre campana y cuerpo con dos puntos de sujeción, mejorando su rendimiento. </p>
   Características:
@@ -45,17 +45,17 @@ Características del Saxofón Baritono Yamaha YBS-32E:
 -Botones llaves: Poliester.
 -Apoyapulgar regulable: Si');
 
-INSERT INTO `productos`(`nombre`, `img_principal`, `subtitulo`, `texto`) VALUES ('Boquilla Selmer C','images/boquilla_selmer_c1.png', 'Boquilla SELMER S80 C','Nueva boquilla de ebonita para saxo alto, Selmer Concept. Este nuevo aúna todo el saber hacer del fabricante francés para ofrecernos una boquilla que proporciona gran facilidad, riqueza de sonido y homogeneidad en todos los registros, un modelo de alta precisión acústica.
-
-Abertura: 1,48
-Largo de tabla: 24 mm
-Cámara redonda');
-
-INSERT INTO `productos`(`nombre`, `img_principal`, `subtitulo`, `texto`) VALUES ('Boquilla selmer concept','images/boquilla_selmer_concept.png', 'Boquilla SELMER Concept','La Boquilla Saxo Alto SELMER S80 C* está disponible para toda la familia de saxofones (soprano, alto, tenor, barítono y bajo). Por tanto, está considerada como el punto de referencia en cuanto a las boquillas para saxofón, con lo que ha adquirido un nivel de popularidad sin precedentes.
+INSERT INTO `productos`(`nombre`, `img_principal`, `subtitulo`, `texto`) VALUES ('Boquilla Selmer C','images/boquilla_selmer_c1.png', 'Boquilla SELMER S80 C','La Boquilla Saxo Alto SELMER S80 C* está disponible para toda la familia de saxofones (soprano, alto, tenor, barítono y bajo). Por tanto, está considerada como el punto de referencia en cuanto a las boquillas para saxofón, con lo que ha adquirido un nivel de popularidad sin precedentes.
                                                                   
 Se caracteriza por su sonido cálido y amplio y su fácil respuesta.
 
 La Boquilla SELMER S80 C* tiene una abertura de 1.55 mm. La longitud de la tabla es de 24 mm. La cámara de la boquilla es cuadrada. No incluye abrazadera ni boquillero.');
+
+INSERT INTO `productos`(`nombre`, `img_principal`, `subtitulo`, `texto`) VALUES ('Boquilla selmer concept','images/boquilla_selmer_concept.png', 'Boquilla SELMER Concept','Nueva boquilla de ebonita para saxo alto, Selmer Concept. Este nuevo aúna todo el saber hacer del fabricante francés para ofrecernos una boquilla que proporciona gran facilidad, riqueza de sonido y homogeneidad en todos los registros, un modelo de alta precisión acústica.
+
+Abertura: 1,48
+Largo de tabla: 24 mm
+Cámara redonda');
 
 INSERT INTO `productos`(`nombre`, `img_principal`, `subtitulo`, `texto`) VALUES ('Boquilla Vandoren AL-3','images/boquilla_vandoren_al3.png', 'Boquilla Saxofon Alto Vandoren Optimum AL3','Es la boquilla más utilizada dentro del aprendizaje del saxofón clásico. 
 
