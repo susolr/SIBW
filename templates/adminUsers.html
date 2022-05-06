@@ -10,7 +10,7 @@
   <div class="panel">
     <div class="editarRol">
       <!-- <a href="/borrarComentario.php?id={{ comentario['id'] }}"><img src="https://icons-for-free.com/iconfiles/png/512/delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588.png" /></a> -->
-      <img src="https://cdn.iconscout.com/icon/free/png-256/edit-2653317-2202989.png" onclick="editarUsuario('{{ user['nick'] }}')" />
+      <img src="https://cdn.iconscout.com/icon/free/png-256/edit-2653317-2202989.png" onclick="editarUsuario('{{ user['username'] }}')" />
 
       <form id="form_us{{ user['nick'] }}" style="display:none" method="post" >
         <select name="operacion" id="operacion">
