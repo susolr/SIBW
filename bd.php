@@ -145,10 +145,8 @@
 		}
 
     function modificarDatosUsuario($username, $nombre, $apellidos, $email){
-			// echo ($password);
       
-			$res = $this->mysqli->query("UPDATE INTO usuarios (username, nombre, apellidos, email, tipo)
-	  			  VALUES('$username', '$nombre','$apellidos', '$email',0)");
+			$res = $this->mysqli->query("UPDATE usuarios SET nombre='$nombre', apellidos='$apellidos', email='$email' WHERE username='$username'");
 	  	return $res;
 		}
   }
