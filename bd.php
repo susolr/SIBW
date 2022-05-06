@@ -124,14 +124,14 @@
 		}
 
     function encontrarUsuario($username){
-			$res = $this->mysqli->query("SELECT * FROM usuarios WHERE nick='" . $username ."'");
-			$usuario = array('nick' => 'XXX', 'pass' => 'YYY', 'rol' => 'ROL');
+			$res = $this->mysqli->query("SELECT * FROM usuarios WHERE username='" . $username ."'");
+			$usuario = array('username' => 'XXX', 'pass' => 'YYY', 'nombre' => 'Unknown', 'apellidos'=> 'apellidos', 'email' => 'prueba@gmail.com','tipo' => 'ROL');
 
 			//echo("SELECT * FROM usuarios WHERE nick='" . $username ."'");
 
 			if ($res->num_rows > 0) {
 	      $row = $res->fetch_assoc();
-				$usuario= array('nick'=> $row['nick'], 'pass'=>$row['password'], 'rol'=>$row['tipo']);
+				$usuario= array('username'=> $row['username'], 'pass'=>$row['pass'], 'nombre' => $row['nombre'], 'apellidos'=>$row['apellidos'], 'email' =>$row['email'],'tipo'=>$row['tipo']);
 			}
 			return $usuario;
 		}
@@ -141,6 +141,14 @@
       
 			$res = $this->mysqli->query("INSERT INTO usuarios (username, pass, nombre, apellidos, email, tipo)
 	  			  VALUES('$username', '$password', '$nombre','$apellidos', '$email',0)");
+	  	return $res;
+		}
+
+    function modificarDatosUsuario($username, $nombre, $apellidos, $email){
+			// echo ($password);
+      
+			$res = $this->mysqli->query("UPDATE INTO usuarios (username, nombre, apellidos, email, tipo)
+	  			  VALUES('$username', '$nombre','$apellidos', '$email',0)");
 	  	return $res;
 		}
   }

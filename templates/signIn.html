@@ -1,12 +1,16 @@
 {% extends "base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="styles/otros_style.css">
+{% endblock %}
+
  {% block main %}
  <form method="post" action="signin.php">
    <label for="luser">Username:</label><br>
    <input type="text" id="user" name="luser"><br>
    <label for="lpass">Password:</label><br>
-   <input type="text" id="pass1" name="lpass1"><br>
+   <input type="password" id="pass1" name="lpass1"><br>
    <label for="lpass">Repeat your password:</label><br>
-   <input type="text" id="pass2" name="lpass2"><br>
+   <input type="password" id="pass2" name="lpass2"><br>
 
    <label for="nombre">Nombre:</label><br>
    <input type="text" id="nombre" name="nombre"><br>
@@ -18,4 +22,5 @@
 
    <button type="submit" class="comm_but" id="comm_but" name="reg_user">Register</button>
  </form>
+ 
  {% endblock %}
