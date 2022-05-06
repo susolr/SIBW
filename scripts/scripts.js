@@ -8,7 +8,6 @@ peticion.onreadystatechange = function(){
         console.log(palabras_prohibidas);
     }
 }
-console.log(palabras_prohibidas);
 
 //peticion.open('GET', 'palabras_prohibidas.php', true);
 peticion.open('GET', 'palabras_prohibidas.php', true);

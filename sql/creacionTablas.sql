@@ -13,6 +13,22 @@ CREATE TABLE imagenes(
   FOREIGN KEY (producto) REFERENCES productos(id)
 )
 
+CREATE TABLE tipousuario(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  tipo VARCHAR(20) PRIMARY KEY,
+  valor INT;
+)
+
+CREATE TABLE usuarios(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(20),
+  pass VARCHAR (200),
+  nombre VARCHAR(100),
+  apellidos VARCHAR(200),
+  email VARCHAR(200),
+  tipo INT REFERENCES tipousuario(id)
+)
+
 CREATE TABLE comentarios(
   id INT AUTO_INCREMENT PRIMARY KEY,
   producto INT,

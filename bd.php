@@ -95,22 +95,6 @@
 
     }
 
-    function getProducto2 ($idPro){
-
-      $stmt = $this->mysqli->prepare("SELECT nombre FROM productos WHERE id = ? ");
-      $stmt->bind_param("i", $idPro);
-      $stmt->execute();
-      $res = $stmt->get_result();
-      $row = $res->fetch_assoc();
-      $nombre = $row['nombre'];
-      $stmt->close();
-
-      $producto = array('id' => $idPro, 'nombre' => $nombre);
-      
-      return $producto;
-
-    }
-
     function getPalabrasProhibidas(){
 	    $res = $this->mysqli->query("SELECT palabra FROM palabrasprohibidas");
       $arr = [];
@@ -120,5 +104,36 @@
 
 	  	return $arr;
     }
+
+    //Gestion de usuarios
+    function checkLogin($username, $password){
+			$userBD=$this->encontrarUsuario($username);
+			//echo strlen($userBD['nick']);
+			$hash = $userBD['pass'];
+			// printf(strlen($hash));
+			//echo $userBD['pass'];
+			if(password_verify($password, $hash)){
+			//if(password_verify($password, $hash)){
+				// printf("Lo he conseguio");
+				return true;
+			} else{
+				// printf("Acho");
+				return false;
+			}
+
+		}
+
+    function encontrarUsuario($username){
+			$res = $this->mysqli->query("SELECT * FROM usuarios WHERE nick='" . $username ."'");
+			$usuario = array('nick' => 'XXX', 'pass' => 'YYY', 'rol' => 'ROL');
+
+			//echo("SELECT * FROM usuarios WHERE nick='" . $username ."'");
+
+			if ($res->num_rows > 0) {
+	      $row = $res->fetch_assoc();
+				$usuario= array('nick'=> $row['nick'], 'pass'=>$row['password'], 'rol'=>$row['tipo']);
+			}
+			return $usuario;
+		}
   }
 ?>
