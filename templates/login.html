@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+ {% block main %}
+  <form method="post" action="login.php">
+   <label for="luser">Username:</label><br>
+   <input type="text" id="user" name="luser"><br>
+   <label for="lpass">Password:</label><br>
+   <input type="text" id="pass" name="lpass"><br>
+
+   <button type="submit" class="comm_but" id="comm_but" name="log_user">Iniciar Sesión</button>
+  </form>
+ {% endblock %}

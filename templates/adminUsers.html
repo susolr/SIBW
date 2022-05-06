@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="/styles/editUsuario.css" />
+ 	<script src="/javascripts/evento_script.js" defer></script>
+ {{ parent() }}
+{% endblock %}
+ {% block main %}
+ {% if user.rol=="superusuario" %}
+  {% for user in users %}
+  <div class="panel">
+    <div class="editarRol">
+      <!-- <a href="/borrarComentario.php?id={{ comentario['id'] }}"><img src="https://icons-for-free.com/iconfiles/png/512/delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588.png" /></a> -->
+      <img src="https://cdn.iconscout.com/icon/free/png-256/edit-2653317-2202989.png" onclick="editarUsuario('{{ user['nick'] }}')" />
+
+      <form id="form_us{{ user['nick'] }}" style="display:none" method="post" >
+        <select name="operacion" id="operacion">
+          <option value="registrado">Registrado</option>
+          <option value="moderador">Moderador</option>
+          <option value="gestor">Gestor</option>
+          <option value="superusuario">Superusuario</option>
+        </select><br />
+        <input type="hidden" name="nick_us" value="{{ user['nick'] }}">
+        <input type="submit" name="button_us" value="Change role" />
+      </form>
+
+    </div>
+        <p>Nick: {{ user['nick'] }}</p>
+        <p>Tipo: {{ user['tipo'] }}</p>
+
+
+        <!-- <div class="comentario"><p>{{ comentario['comentario'] }}</p></div>
+        <div class="fechahora"><p>{{ comentario['fecha'] }}</p></div> -->
+  </div>
+
+  {% endfor %}
+  {% endif %}
+ {% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+ {% block css %}
+   <script src="/javascripts/registrado.js" defer></script>
+   {{ parent() }}
+ {% endblock %}
+ {% block main %}
+ <form method="post" action="registrado.php">
+   <label for="luser" >Your username is <strong>{{ user.nick }}</strong></label>
+   <button type="button" onclick="changeUsername()" id="button_change_us">Change username</button>
+   <input type="text" id="user" name="luser" style="display:none"><br>
+   <button type="submit" id="submit_new_us" name="changeNick" style="display:none">Change Username</button>
+ </form>
+ <form method="post" action="registrado.php">
+   <button type="button" onclick="changePassword()" id="button_change_pass">Change password</button><br>
+   <label for="lpass" id="text_pass" style="display:none">Current password:</label><br>
+   <input type="text" id="curr_pass" name="lpass1" style="display:none"><br>
+   <label for="lpass"style="display:none" id="text_new_pass">New password:</label><br>
+   <input type="text" id="new_pass" name="lpass2" style="display:none"><br>
+
+   <button type="submit" id="submit_new_pass" style="display:none" name="changePass">Change Password</button>
+ </form>
+ {% endblock %}

@@ -135,5 +135,13 @@
 			}
 			return $usuario;
 		}
+
+    function signIn($username, $password, $nombre, $apellidos, $email){
+			// echo ($password);
+      
+			$res = $this->mysqli->query("INSERT INTO usuarios (username, pass, nombre, apellidos, email, tipo)
+	  			  VALUES('$username', '$password', '$nombre','$apellidos', '$email',0)");
+	  	return $res;
+		}
   }
 ?>
