@@ -14,7 +14,7 @@
         <input type="text" id="email" name="email"><br>
         <label for="coment">Comentario:</label><br>
         <input type="text" id="coment" name="coment" oninput="filtrarContenido(this.value)"><br>
-        <button type="button" class="publicar-comentario" onclick="publicarComentario()">&#9776; Enviar</button>
+        <button type="button" class="publicar-comentario" onclick="publicarComentario({{producto.id}})">&#9776; Enviar</button>
     </form> 
     
     
@@ -41,7 +41,7 @@
     <p> {{ producto.contenido|nl2br }} </p>
    
     <a class="imprimir" href="producto_imprimir.php" target="_blank">Imprimir</a>
-    <button type="button" class="mostrar-comentarios" onclick="mostrarComentariosPanel()">&#9776; Comentarios</button>
+    <button type="button" class="mostrar-comentarios" onclick="mostrarComentariosPanel({{producto.id}})">&#9776; Comentarios</button>
 </div>
 
 <aside>

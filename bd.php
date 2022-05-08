@@ -184,6 +184,7 @@
       $texto="";
       $idAutor = 0;
       $idPro = 0;
+      $modificado = 0;
 
       $stmt = $this->mysqli->prepare("SELECT * FROM comentarios WHERE id= ?");
       $stmt->bind_param("i", $id);
@@ -196,6 +197,7 @@
         $texto = $row['texto'];
         $idAutor = $row['autor'];
         $idPro = $row['producto'];
+        $modificado = $row['modificado'];
       }
       $stmt->close();
 
@@ -221,7 +223,7 @@
       }
       $stmt->close();
 
-      $comentario = array('id' => $id, 'producto' => $producto, 'autor' => $autor, 'fecha' => $fecha, 'texto' => $texto);
+      $comentario = array('id' => $id, 'producto' => $producto, 'autor' => $autor, 'fecha' => $fecha, 'texto' => $texto, 'modificado' => $modificado);
 
       return $comentario;
 
@@ -235,7 +237,28 @@
       return $arr;
     }
     function borrarComentario($id){
-			$res = $this->mysqli->query("DELETE FROM comentarios WHERE id='$id");
+			$res = $this->mysqli->query("DELETE FROM comentarios WHERE id=$id");
 		}
+
+    function editarComentario($id, $texto){
+      $this->mysqli->query("UPDATE comentarios SET texto='$texto', modificado=1 WHERE id=$id");
+    }
+
+    function insertarComentario($producto, $autor, $fecha, $texto){
+      $this->mysqli->query("INSERT INTO comentarios(producto, autor, fecha, texto) VALUES ( $producto, $autor, '$fecha','$texto');");
+    }
+
+    function getComentarios($idPro){
+      $stmt = $this->mysqli->prepare("SELECT * FROM productos WHERE id=?");
+      $stmt->bind_param("i", $idPro);
+      $stmt->execute();
+      $res = $stmt->get_result();
+      
+      while($row = $res->fetch_assoc()) {
+        $autor = $row['nombre'];
+      }
+      $stmt->close();
+      
+    }
   }
 ?>

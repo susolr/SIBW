@@ -1,20 +1,22 @@
 {% extends "base.html" %}
 {% block head %}
     <link rel="stylesheet" href="styles/otros_style.css">
+    <script src="scripts/scripts.js"></script>
 {% endblock %}
 
  {% block main %}
- <form method="post" action="modificar_datos_usuario.php">
-   <label for="luser">Producto:</label><br>
-   <label id="user" name="luser">{{user.username}}<label><br>
+ <form method="post" action="editarComentario.php">
+   <label for="lpro">Producto:</label><br>
+   <label id="pro" name="lpro">{{comentario.producto}}<label><br>
 
 
-   <label for="nombre">Nombre:</label><br>
-   <input type="text" id="nombre" name="nombre" value="{{user.nombre}}"><br>
-   <label for="apellidos">Apellidos:</label><br>
-   <input type="text" id="apellidos" name="apellidos" value="{{user.apellidos}}"><br>
-   <label for="email">email:</label><br>
-   <input type="email" id="email" name="email" value="{{user.email}}"><br>
+   <label for="lautor">Autor:</label><br>
+   <label id="pro" name="lautor">{{comentario.autor}}<label><br>
+   <label for="lpro">Fecha:</label><br>
+   <label id="pro" name="pro">{{comentario.fecha}}<label><br>
+   <label for="texto">Texto:</label><br>
+   <input type="text" type="text" cols="40" rows="5" id="texto" name="texto" value="{{comentario.texto}}" oninput="filtrarContenido(this.value)" size="200"><br>
+   <input type="hidden" name="id" value="{{ comentario.id }}">
 
 
    <button type="submit" class="comm_but" id="comm_but" name="modificar_datos">Modificar</button>

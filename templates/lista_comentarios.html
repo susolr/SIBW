@@ -9,6 +9,9 @@
       <p>{{ comentario['producto'] }}</p>
       <div class="autor"><p>{{ comentario['autor'] }}</p></div>
       <div class="comentario"><p>{{ comentario['texto'] }}</p></div>
+      {% if comentario.modificado != 0 %}
+      <div class="modificado"><p> Comentario modificado por un moderador </p></div>
+      {% endif %}
       <div class="fechahora"><p>{{ comentario['fecha'] }}</p></div>
       <div class="editarBorrarComentario">
         <a href="/borrarComentario.php?id={{ comentario['id'] }}"><img class="icono" src="https://icons-for-free.com/iconfiles/png/512/delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588.png" /></a>

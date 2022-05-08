@@ -12,7 +12,7 @@ peticion.onreadystatechange = function(){
 peticion.open('GET', 'palabras_prohibidas.php', true);
 peticion.send();
 
-var comentario1 = {
+/*var comentario1 = {
     autor:"Jesús",
     fecha: "17/03/2021",
     hora: "10:33",
@@ -24,14 +24,25 @@ var comentario2 = {
     fecha: "13/02/2021",
     hora: "18:53",
     texto: "Muy mala experiencia con el producto"
-};
+};*/
 
 var comentarios_mostrados = false;
 
-comentarios.push(comentario1);
-comentarios.push(comentario2);
+//comentarios.push(comentario1);
+//comentarios.push(comentario2);
 
-function mostrarComentarios(){
+function mostrarComentarios(idPro){
+    var peticion_comentarios = new XMLHttpRequest();
+    peticion_comentarios.onreadystatechange = function(){
+    if (peticion.readyState == 4 && peticion.status==200){
+        palabras_prohibidas = JSON.parse(this.responseText);
+    }
+    }   
+
+    //peticion.open('GET', 'palabras_prohibidas.php', true);
+    peticion_comentarios.open('GET', 'leerComentarios.php?id='+idPro, true);
+    peticion_comentarios.send();
+
     const authLabel = "Autor";
     const dateLabel = "Fecha y Hora";
     const contentLabel = "Comentario";
@@ -118,9 +129,9 @@ function vaciarComentarios(){
     }
 }
 
-function mostrarComentariosPanel(){
+function mostrarComentariosPanel(id){
     if(!comentarios_mostrados){
-        mostrarComentarios();
+        mostrarComentarios(id);
         comentarios_mostrados = true;
     }
     document.getElementById("comentarios-sidepanel").style.width= "40%";
@@ -191,7 +202,7 @@ function mostrarError(mensaje){
     alert(mensaje);
 }
 
-function publicarComentario(){
+function publicarComentario(id){
     var email = document.getElementById('email').value;
     var errores = 0;
     var email_correcto = comprobarEmail(email);
@@ -227,19 +238,34 @@ function publicarComentario(){
         const d = new Date();
         var f = d.getDate() + "/" + d.getMonth()+ "/" + d.getFullYear();
         var h = d.getHours() + ":" + d.getMinutes();
-        var com = {
+        var fh = f + h;
+        var com = JSON.stringify({
+            producto: id,
             autor: nombre,
-            fecha: f,
-            hora: h,
+            fecha: fh,
             texto: content
-        };
-        comentarios.push(com);
+        });
+        //comentarios.push(com);
+        insertarComentario(com)
         vaciarComentarios();
         mostrarComentarios();
     }
     else{
         mostrarError(mensaje);
     }
+}
+
+function insertarComentario(com){
+    var peticion = new XMLHttpRequest();
+    peticion.onreadystatechange = function(){
+    if (peticion.readyState == 4 && peticion.status==200){
+        palabras_prohibidas = JSON.parse(this.responseText);
+    }
+}
+
+//peticion.open('GET', 'palabras_prohibidas.php', true);
+    peticion.open('POST', 'palabras_prohibidas.php?'+com, true);
+    peticion.send();
 }
 
 function editarUsuario(id){
