@@ -1,2 +1,2 @@
-INSERT INTO `comentarios`(`producto`, `autor`, `fecha`, `texto`) VALUES ( 1 ,'Jesús',STR_TO_DATE('17,03,2021 10,33', '%d,%m,%Y %h,%i'),'Producto altamente recomendable debido a su gran calidad');
-INSERT INTO `comentarios`(`producto`, `autor`, `fecha`, `texto`) VALUES ( 1 ,'Fran',STR_TO_DATE('13,02,2021 18,53', '%d,%m,%Y %h,%i'),'Muy mala experiencia con el producto');
+INSERT INTO `comentarios`(`producto`, `autor`, `fecha`, `texto`) VALUES ( 1 ,1,STR_TO_DATE('17,03,2021 10,33', '%d,%m,%Y %h,%i'),'Producto altamente recomendable debido a su gran calidad');
+INSERT INTO `comentarios`(`producto`, `autor`, `fecha`, `texto`) VALUES ( 1 ,2,STR_TO_DATE('17,03,2021 10,33', '%d,%m,%Y %h,%i'),'Muy mala experiencia con el producto');

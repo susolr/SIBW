@@ -5,5 +5,5 @@
 
   $bd->borrarComentario($_GET["id"]);
   // echo($_GET["id"]);
-  header("Location: /comments");
+  header("Location: /listaComentarios.php");
 ?>

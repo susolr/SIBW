@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="styles/otros_style.css">
+{% endblock %}
+
+ {% block main %}
+ <form method="post" action="modificar_datos_usuario.php">
+   <label for="luser">Producto:</label><br>
+   <label id="user" name="luser">{{user.username}}<label><br>
+
+
+   <label for="nombre">Nombre:</label><br>
+   <input type="text" id="nombre" name="nombre" value="{{user.nombre}}"><br>
+   <label for="apellidos">Apellidos:</label><br>
+   <input type="text" id="apellidos" name="apellidos" value="{{user.apellidos}}"><br>
+   <label for="email">email:</label><br>
+   <input type="email" id="email" name="email" value="{{user.email}}"><br>
+
+
+   <button type="submit" class="comm_but" id="comm_but" name="modificar_datos">Modificar</button>
+ </form>
+ 
+ {% endblock %}

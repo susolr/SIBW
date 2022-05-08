@@ -31,10 +31,11 @@ CREATE TABLE usuarios(
 CREATE TABLE comentarios(
   id INT AUTO_INCREMENT PRIMARY KEY,
   producto INT,
-  autor VARCHAR(100),
+  autor INT,
   fecha DATETIME,
   texto TEXT,
-  FOREIGN KEY (producto) REFERENCES productos(id)
+  FOREIGN KEY (producto) REFERENCES productos(id),
+  FOREIGN KEY (autor) REFERENCES usuarios(id)
 )
 
 CREATE TABLE palabrasprohibidas(

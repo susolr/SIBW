@@ -8,9 +8,7 @@
 
   $bd=new bd();
   $comments=$bd->getListaComentarios();
-  if(isset($_SESSION['nickUsuario'])){
-    $user=$bd->encontrarUsuario($_SESSION['nickUsuario']);
-  }
+  $user=$bd->encontrarUsuario("susolr");
 
   echo $twig->render('lista_comentarios.html', ['user'=>$user,'comentarios'=>$comments]);
 ?>

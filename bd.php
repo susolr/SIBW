@@ -182,29 +182,60 @@
       $autor="";
       $fecha="";
       $texto="";
+      $idAutor = 0;
+      $idPro = 0;
 
-      $stmt = $this->mysqli->prepare("SELECT * FROM comentarios WHERE id=$id");
+      $stmt = $this->mysqli->prepare("SELECT * FROM comentarios WHERE id= ?");
       $stmt->bind_param("i", $id);
       $stmt->execute();
       $res = $stmt->get_result();
-      $stmt->close();
+      
       if ($res->num_rows > 0) {
         $row = $res->fetch_assoc();
-
+        $fecha = $row['fecha'];
+        $texto = $row['texto'];
+        $idAutor = $row['autor'];
+        $idPro = $row['producto'];
       }
+      $stmt->close();
 
-      $comentario = array('id' => $id, 'producto' => $producto, 'autor' => $autor, 'fecha' => $fecha, texto' => $texto);
+      $stmt = $this->mysqli->prepare("SELECT * FROM usuarios WHERE id=?");
+      $stmt->bind_param("i", $idAutor);
+      $stmt->execute();
+      $res = $stmt->get_result();
+      
+      if ($res->num_rows > 0) {
+        $row = $res->fetch_assoc();
+        $autor = $row['username'];
+      }
+      $stmt->close();
+
+      $stmt = $this->mysqli->prepare("SELECT * FROM productos WHERE id=?");
+      $stmt->bind_param("i", $idPro);
+      $stmt->execute();
+      $res = $stmt->get_result();
+      
+      if ($res->num_rows > 0) {
+        $row = $res->fetch_assoc();
+        $autor = $row['nombre'];
+      }
+      $stmt->close();
+
+      $comentario = array('id' => $id, 'producto' => $producto, 'autor' => $autor, 'fecha' => $fecha, 'texto' => $texto);
 
       return $comentario;
 
     }
 
     function getListaComentarios(){
-      $res=$this->mysqli->query("SELECT * FROM comentarios");
+      $res=$this->mysqli->query("SELECT id FROM comentarios");
       while($row = $res->fetch_assoc()){
-        $arr[]=  array( 'username'=>$row['username'], 'nombre' => $row['nombre'], 'tipo' =>$row['tipo']);
+        $arr[]=  $this->getComentario($row['id']);
       }
       return $arr;
-  }
+    }
+    function borrarComentario($id){
+			$res = $this->mysqli->query("DELETE FROM comentarios WHERE id='$id");
+		}
   }
 ?>
