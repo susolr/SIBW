@@ -14,9 +14,8 @@ CREATE TABLE imagenes(
 )
 
 CREATE TABLE tipousuario(
-  id INT AUTO_INCREMENT PRIMARY KEY,
+  id INT PRIMARY KEY,
   tipo VARCHAR(20) PRIMARY KEY,
-  valor INT;
 )
 
 CREATE TABLE usuarios(

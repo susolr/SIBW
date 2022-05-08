@@ -1,13 +1,12 @@
 {% extends "base.html" %}
-{% block css %}
- <link rel="stylesheet" type="text/css" href="/styles/comments.css" />
- {{ parent() }}
+{% block head %}
+<link rel="stylesheet" href="styles/otros_style.css">
 {% endblock %}
  {% block main %}
- {% if user.rol=="moderador" or user.rol=="superusuario" %}
+ {% if user.tipo >= 1 %}
   {% for comentario in comentarios %}
     <div class="panel">
-      <p>Evento: {{ comentario['idpost'] }}</p>
+      <p>Producto: {{ comentario['idpost'] }}</p>
       <div class="autor"><p>{{ comentario['autor'] }}</p></div>
       <div class="editarBorrarComentario">
         <a href="/borrarComentario.php?id={{ comentario['id'] }}"><img src="https://icons-for-free.com/iconfiles/png/512/delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588.png" /></a>

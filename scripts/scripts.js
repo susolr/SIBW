@@ -5,7 +5,6 @@ var peticion = new XMLHttpRequest();
 peticion.onreadystatechange = function(){
     if (peticion.readyState == 4 && peticion.status==200){
         palabras_prohibidas = JSON.parse(this.responseText);
-        console.log(palabras_prohibidas);
     }
 }
 
@@ -241,5 +240,8 @@ function publicarComentario(){
     else{
         mostrarError(mensaje);
     }
-    
 }
+
+function editarUsuario(id){
+    document.getElementById(id).style.display="block";
+  }

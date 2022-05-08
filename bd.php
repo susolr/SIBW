@@ -149,5 +149,62 @@
 			$res = $this->mysqli->query("UPDATE usuarios SET nombre='$nombre', apellidos='$apellidos', email='$email' WHERE username='$username'");
 	  	return $res;
 		}
+
+    function getListaUsuarios(){
+        $res=$this->mysqli->query("SELECT * FROM usuarios");
+        while($row = $res->fetch_assoc()){
+          $arr[]=  array( 'username'=>$row['username'], 'nombre' => $row['nombre'], 'tipo' =>$row['tipo']);
+        }
+        return $arr;
+    }
+
+    function editarRol($username,$rol){
+			$this->mysqli->query("UPDATE usuarios SET tipo=$rol WHERE username='$username'");
+		}
+
+    function numSuperusuarios(){
+			$res = $this->mysqli->query("SELECT COUNT(*) FROM usuarios WHERE tipo=3");
+
+			return $res;
+		}
+
+    function getListaTipos(){
+      $res=$this->mysqli->query("SELECT * FROM tipousuario");
+      $arr = [];
+      while($row = $res->fetch_assoc()){
+        $arr[]= array('tipo' => $row['tipo'], 'id' => $row['id']);
+      }
+      return $arr;
+    }
+
+    function getComentario($id){
+      $producto = "";
+      $autor="";
+      $fecha="";
+      $texto="";
+
+      $stmt = $this->mysqli->prepare("SELECT * FROM comentarios WHERE id=$id");
+      $stmt->bind_param("i", $id);
+      $stmt->execute();
+      $res = $stmt->get_result();
+      $stmt->close();
+      if ($res->num_rows > 0) {
+        $row = $res->fetch_assoc();
+
+      }
+
+      $comentario = array('id' => $id, 'producto' => $producto, 'autor' => $autor, 'fecha' => $fecha, texto' => $texto);
+
+      return $comentario;
+
+    }
+
+    function getListaComentarios(){
+      $res=$this->mysqli->query("SELECT * FROM comentarios");
+      while($row = $res->fetch_assoc()){
+        $arr[]=  array( 'username'=>$row['username'], 'nombre' => $row['nombre'], 'tipo' =>$row['tipo']);
+      }
+      return $arr;
+  }
   }
 ?>

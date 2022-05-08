@@ -1,37 +1,44 @@
 {% extends "base.html" %}
-{% block css %}
-  <link rel="stylesheet" type="text/css" href="/styles/editUsuario.css" />
- 	<script src="/javascripts/evento_script.js" defer></script>
- {{ parent() }}
+{% block head %}
+  <link rel="stylesheet" href="styles/otros_style.css">
+  <script src="scripts/scripts.js"></script>
 {% endblock %}
  {% block main %}
- {% if user.rol=="superusuario" %}
+ {% if usuario.tipo == 3  %}
   {% for user in users %}
   <div class="panel">
     <div class="editarRol">
       <!-- <a href="/borrarComentario.php?id={{ comentario['id'] }}"><img src="https://icons-for-free.com/iconfiles/png/512/delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588.png" /></a> -->
-      <img src="https://cdn.iconscout.com/icon/free/png-256/edit-2653317-2202989.png" onclick="editarUsuario('{{ user['username'] }}')" />
+      <button type="button" class="editar-usuario" onclick="editarUsuario('{{ user.username }}')"><img class="img-editar" src="https://cdn.iconscout.com/icon/free/png-256/edit-2653317-2202989.png" /></button>
 
-      <form id="form_us{{ user['nick'] }}" style="display:none" method="post" >
+      <form id="{{ user.username }}" style="display:none" method="post" >
         <select name="operacion" id="operacion">
-          <option value="registrado">Registrado</option>
-          <option value="moderador">Moderador</option>
-          <option value="gestor">Gestor</option>
-          <option value="superusuario">Superusuario</option>
+          {% for tipo in tipos %}
+            {% if tipo.id == user.tipo%}
+            <option value={{tipo.id}} selected>{{tipo.tipo}}</option>
+            {%else %}
+            <option value={{tipo.id}}>{{tipo.tipo}}</option>
+            {% endif%}
+
+          {% endfor %}
         </select><br />
-        <input type="hidden" name="nick_us" value="{{ user['nick'] }}">
+        <input type="hidden" name="nick_us" value="{{ user.username }}">
+        <input type="hidden" name="old_tipo" value="{{ user.tipo }}">
         <input type="submit" name="button_us" value="Change role" />
       </form>
 
     </div>
-        <p>Nick: {{ user['nick'] }}</p>
-        <p>Tipo: {{ user['tipo'] }}</p>
+        <p>Usuario: {{ user.username}} </p>
+        <p>Nombre: {{ user['nombre'] }}</p>
+        <p>Tipo: {{ tipos[user.tipo].tipo}}</p>
 
-
-        <!-- <div class="comentario"><p>{{ comentario['comentario'] }}</p></div>
-        <div class="fechahora"><p>{{ comentario['fecha'] }}</p></div> -->
   </div>
 
   {% endfor %}
+  {% else %}
+  <p> No eres superusuario </p>
   {% endif %}
+
+
+  
  {% endblock %}
