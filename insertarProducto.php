@@ -13,7 +13,7 @@
 
   if (isset($_POST['insertar_producto'])) {
     $nombre = $_POST['nombre'];
-    $subtitulo = $_POST['subitutlo'];
+    $subtitulo = $_POST['subtitulo'];
     $descripcion = $_POST['descripcion'];
     $img_p = $_POST['img-principal'];
     $img_s1 = $_POST['img-s1'];
@@ -26,14 +26,11 @@
     if (empty($img_p)) { array_push($errors, "Imagen principal necesaria"); }
 
     if (count($errors) == 0) {
-
-
         $bd->insertarProducto($nombre, $subtitulo, $descripcion, $img_p, $img_s1, $img_s2);
-
         header('location: listaProductos.php');
     }
 
   }
 
-  echo $twig->render('insertarProducto.html', [$errors]);
+  echo $twig->render('insertarProducto.html', ['errores' => $errors]);
 ?>

@@ -76,11 +76,25 @@
     }
 
     function borrarProducto($id){
-			$res = $this->mysqli->query("DELETE FROM productos WHERE id=$id");
+      $this->mysqli->query("DELETE FROM imagenes WHERE producto=$id");
+			$this->mysqli->query("DELETE FROM productos WHERE id=$id");
 		}
 
     function insertarProducto($nombre, $subtitulo, $descripcion, $img_p, $img_1, $img_2){
-      $res = $this->mysqli->query("INSERT INTO productos(nombre, img_principal, subtitulo, texto) VALUES ('$nombre', '$img_p', '$subtitulo', '$descripcion')");
+      $this->mysqli->query("INSERT INTO productos(nombre, img_principal, subtitulo, texto) VALUES ('$nombre', '$img_p', '$subtitulo', '$descripcion')");
+
+      $res = $this->mysqli->query("SELECT id FROM productos WHERE nombre='$nombre' ORDER BY id DESC");
+      $row = $res->fetch_assoc();
+      $id = $row['id'];
+
+      if (!empty($img_1)){
+        $res = $this->mysqli->query("INSERT INTO `imagenes`(`producto`, `recurso`) VALUES ( $id ,'$img_1')");
+      }
+
+      if (!empty($img_2)){
+        $res = $this->mysqli->query("INSERT INTO `imagenes`(`producto`, `recurso`) VALUES ( $id ,'$img_2')");
+      }
+
     }
 
 

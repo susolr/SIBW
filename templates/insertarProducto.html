@@ -13,14 +13,17 @@
    <input type="text" id="descripcion" name="descripcion"><br>
 
    <label for="img-principal">Imagen principal:</label><br>
-   <input type="text" id="nombre" name="nombre"><br>
+   <input type="text" id="imp-principal" name="img-principal"><br>
    <label for="img-s1">Imagen segundaria:</label><br>
    <input type="text" id="img-s1" name="img-s1"><br>
    <label for="img-s2">Imagen secundaria:</label><br>
    <input type="text" id="img-s2" name="img-s2"><br>
 
-
-   <button type="submit" class="comm_but" id="comm_but" name="insertar_producto">Register</button>
+   <button type="submit" class="comm_but" id="comm_but" name="insertar_producto">Insertar</button>
  </form>
+
+ {% for error in errores%}
+    <p> {{error}} </p>
+ {% endfor %}
  
  {% endblock %}
