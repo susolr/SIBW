@@ -14,26 +14,6 @@
       return $this->mysqli;
     }
 
-    function prueba(){
-
-      $mysqli = new mysqli("mysql", "coronavirus", "covid19", "SIBW");
-      if ($mysqli->connect_errno) {
-        echo ("Fallo al conectar: " . $mysqli->connect_error);
-      }
-
-      $arr = [];
-      $stmt = $mysqli->prepare("SELECT nombre, favorite_color, age FROM myTable WHERE name = ?");
-      $stmt->bind_param("s", $_POST['name']);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      while($row = $result->fetch_row()) {
-        $arr[] = $row;
-      }
-
-      $stmt->close();
-
-    }
-
     function getListaProductos(){
       
       $arr = [];
@@ -125,13 +105,13 @@
 
     function encontrarUsuario($username){
 			$res = $this->mysqli->query("SELECT * FROM usuarios WHERE username='" . $username ."'");
-			$usuario = array('username' => 'XXX', 'pass' => 'YYY', 'nombre' => 'Unknown', 'apellidos'=> 'apellidos', 'email' => 'prueba@gmail.com','tipo' => 'ROL');
+			$usuario = array('id' => 0,'username' => 'XXX', 'pass' => 'YYY', 'nombre' => 'Unknown', 'apellidos'=> 'apellidos', 'email' => 'prueba@gmail.com','tipo' => -1);
 
 			//echo("SELECT * FROM usuarios WHERE nick='" . $username ."'");
 
 			if ($res->num_rows > 0) {
 	      $row = $res->fetch_assoc();
-				$usuario= array('username'=> $row['username'], 'pass'=>$row['pass'], 'nombre' => $row['nombre'], 'apellidos'=>$row['apellidos'], 'email' =>$row['email'],'tipo'=>$row['tipo']);
+				$usuario= array('id' => $row['id'], 'username'=> $row['username'], 'pass'=>$row['pass'], 'nombre' => $row['nombre'], 'apellidos'=>$row['apellidos'], 'email' =>$row['email'],'tipo'=>$row['tipo']);
 			}
 			return $usuario;
 		}
@@ -219,7 +199,7 @@
       
       if ($res->num_rows > 0) {
         $row = $res->fetch_assoc();
-        $autor = $row['nombre'];
+        $producto = $row['nombre'];
       }
       $stmt->close();
 
@@ -244,20 +224,21 @@
       $this->mysqli->query("UPDATE comentarios SET texto='$texto', modificado=1 WHERE id=$id");
     }
 
-    function insertarComentario($producto, $autor, $fecha, $texto){
-      $this->mysqli->query("INSERT INTO comentarios(producto, autor, fecha, texto) VALUES ( $producto, $autor, '$fecha','$texto');");
+    function insertarComentario($producto, $autor, $texto){
+      $this->mysqli->query("INSERT INTO comentarios(producto, autor, fecha, texto) VALUES ( $producto, $autor, SYSDATE(),'$texto');");
     }
 
     function getComentarios($idPro){
-      $stmt = $this->mysqli->prepare("SELECT * FROM productos WHERE id=?");
+      $stmt = $this->mysqli->prepare("SELECT id FROM comentarios WHERE producto=?");
       $stmt->bind_param("i", $idPro);
       $stmt->execute();
       $res = $stmt->get_result();
-      
-      while($row = $res->fetch_assoc()) {
-        $autor = $row['nombre'];
+      $arr = [];
+
+      while($row = $res->fetch_assoc()){
+        $arr[]=  $this->getComentario($row['id']);
       }
-      $stmt->close();
+      return $arr;
       
     }
   }

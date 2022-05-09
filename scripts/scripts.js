@@ -1,4 +1,4 @@
-var comentarios = new Array();
+var comentarios;
 //var palabras_prohibidas = ["haiga", "asin", "gordo", "gorda", "zorra", "guarro", "guarra", "perra", "gilipollas", "idiota"];
 var palabras_prohibidas;
 var peticion = new XMLHttpRequest();
@@ -34,12 +34,12 @@ var comentarios_mostrados = false;
 function mostrarComentarios(idPro){
     var peticion_comentarios = new XMLHttpRequest();
     peticion_comentarios.onreadystatechange = function(){
-    if (peticion.readyState == 4 && peticion.status==200){
-        palabras_prohibidas = JSON.parse(this.responseText);
-    }
+        if (peticion.readyState == 4 && peticion.status==200){
+            comentarios = JSON.parse(this.responseText);
+            console.log(comentarios);
+        }
     }   
-
-    //peticion.open('GET', 'palabras_prohibidas.php', true);
+    var cadena = "leerComentarios.php?id="+idPro;
     peticion_comentarios.open('GET', 'leerComentarios.php?id='+idPro, true);
     peticion_comentarios.send();
 
@@ -130,10 +130,10 @@ function vaciarComentarios(){
 }
 
 function mostrarComentariosPanel(id){
-    if(!comentarios_mostrados){
+    /*if(!comentarios_mostrados){
         mostrarComentarios(id);
         comentarios_mostrados = true;
-    }
+    }*/
     document.getElementById("comentarios-sidepanel").style.width= "40%";
 }
 

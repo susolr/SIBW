@@ -5,19 +5,28 @@
 {% endblock %}
 
 {% block comentarios %}
+
 <div id="comentarios-sidepanel" class="comentarios-sidepanel">
     <a href="javascript:void(0)" class="cerrar-comentarios" onclick="esconderComentarios()">&times;</a>
-    <form id="formulario-comentario" class="formulario-comentario">
-        <label for="nombre">Nombre:</label><br>
-        <input type="text" id="nombre" name="nombre"><br>
-        <label for="email">Email:</label><br>
-        <input type="text" id="email" name="email"><br>
-        <label for="coment">Comentario:</label><br>
-        <input type="text" id="coment" name="coment" oninput="filtrarContenido(this.value)"><br>
-        <button type="button" class="publicar-comentario" onclick="publicarComentario({{producto.id}})">&#9776; Enviar</button>
-    </form> 
-    
-    
+    {% for comentario in comentarios %}
+    <div class="comentario">
+        <p class="autor-label"> Autor: </p>
+        <p class="autor"> {{comentario.autor}} </p>
+        <p class="date-label"> Fecha </p>
+        <p class="date"> {{comentario.fecha}} </p>
+        <p class="content-label"> Contenido: </p>
+        <p class="content"> {{comentario.texto}} </p>
+    </div>
+    {% endfor %}
+    {% if user.tipo >= 0 %}
+        <form id="formulario-comentario" class="formulario-comentario" method="post" action="producto.php">
+            <label for="coment">Comentario:</label><br>
+            <input type="text" id="coment" name="coment" oninput="filtrarContenido(this.value)"><br>
+            <input type="hidden" name="autor" value="{{ user.id }}">
+            <input type="hidden" name="producto" value="{{ producto.id }}">
+            <button type="submit" class="comm_but" id="comm_but" name="publicar_comentario">&#9776; Enviar</button>
+        </form> 
+    {% endif %}
 </div>
 {% endblock %}
 
