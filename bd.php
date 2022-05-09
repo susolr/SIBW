@@ -17,12 +17,12 @@
     function getListaProductos(){
       
       $arr = [];
-      $stmt = $this->mysqli->prepare("SELECT id, nombre, img_principal FROM productos");
+      $stmt = $this->mysqli->prepare("SELECT * FROM productos");
       $stmt->execute();
       $result = $stmt->get_result();
 
       while($row = $result->fetch_assoc()){
-        $prod = array('id'=> $row['id'], 'nombre' => $row['nombre'], 'img_principal' => $row['img_principal']);
+        $prod = array('id'=> $row['id'], 'nombre' => $row['nombre'], 'img_principal' => $row['img_principal'], 'subtitulo' => $row['subtitulo'], 'contenido' => $row['texto']);
         $arr[] = $prod;
       }
       $stmt->close();
@@ -74,6 +74,13 @@
       return $producto;
 
     }
+
+    function borrarProducto($id){
+			$res = $this->mysqli->query("DELETE FROM productos WHERE id=$id");
+		}
+
+
+    //Palabras prohibidas
 
     function getPalabrasProhibidas(){
 	    $res = $this->mysqli->query("SELECT palabra FROM palabrasprohibidas");
