@@ -33,7 +33,7 @@
 
   }
 
-  $comentario = $bd->getComentario(2);
+  $comentario = $bd->getComentario($id);
 
 
 

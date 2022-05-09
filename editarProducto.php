@@ -17,7 +17,7 @@
     $id = $_GET['id'];
   }
   
-  if (isset($_POST['modificar_datos'])) {
+  if (isset($_POST['modificar_producto'])) {
 
     $texto = $_POST['texto'];
     $id = $_POST['id'];
@@ -28,14 +28,14 @@
 
         $bd->editarComentario($id, $texto);
 
-        header('location: listaComentarios.php');
+        header('location: listaProductos.php');
     }
 
   }
 
-  $comentario = $bd->getComentario(2);
+  $comentario = $bd->getProducto($id);
 
 
 
-  echo $twig->render('editar_comentario.html', ['comentario'=>$comentario]);
+  echo $twig->render('editar_producto.html', ['producto'=>$producto, 'errores' => $errors]);
 ?>
