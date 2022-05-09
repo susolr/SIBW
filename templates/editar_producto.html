@@ -8,16 +8,14 @@
    <label for="nombre">Nombre:</label><br>
    <input type="text" id="nombre" name="nombre" value="{{producto.nombre}}"><br>
    <label for="subtitulo">Subtitulo:</label><br>
-   <input type="text" id="subtitulo" name="subtitulo"><br>
+   <input type="text" id="subtitulo" name="subtitulo" value="{{producto.subtitulo}}"><br>
    <label for="descripcion">Descripcion:</label><br>
-   <input type="text" id="descripcion" name="descripcion"><br>
+   <textarea cols="200" rows="15" id="descripcion" name="descripcion" value="{{producto.contenido}}" > {{producto.contenido}} </textarea> <br>
 
-   <label for="img-principal">Imagen principal:</label><br>
-   <input type="text" id="imp-principal" name="img-principal"><br>
-   <label for="img-s1">Imagen segundaria:</label><br>
-   <input type="text" id="img-s1" name="img-s1"><br>
-   <label for="img-s2">Imagen secundaria:</label><br>
-   <input type="text" id="img-s2" name="img-s2"><br>
+   <input type="hidden" name="id" value="{{ producto.id }}">
+
+   <div class="imagen-principal"><img class="icono" src={{ producto.img_1 }} ></div>
+   <div class="imagen-principal"><img class="icono" src={{ producto.img_2 }} ></div>
 
    <button type="submit" class="comm_but" id="comm_but" name="modificar_producto">Guardar</button>
  </form>

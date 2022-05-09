@@ -97,6 +97,10 @@
 
     }
 
+    function editarProducto($id, $nombre, $subtitulo, $descripcion){
+      $this->mysqli->query("UPDATE productos SET nombre='$nombre', subtitulo='$subtitulo', texto='$descripcion' WHERE id=$id");
+    }
+
 
     //Palabras prohibidas
 

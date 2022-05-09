@@ -19,23 +19,25 @@
   
   if (isset($_POST['modificar_producto'])) {
 
-    $texto = $_POST['texto'];
     $id = $_POST['id'];
-    if (empty($texto)) { array_push($errors, "Text is required"); }
+    $nombre = $_POST['nombre'];
+    $subtitulo = $_POST['subtitulo'];
+    $descripcion = $_POST['descripcion'];
 
-    // Finally, register user if there are no errors in the form
+    if (empty($nombre)) { array_push($errors, "Nombre necesario"); }
+    if (empty($subtitulo)) { array_push($errors, "Subtitulo necesario"); }
+    if (empty($descripcion)) { array_push($errors, "Descripcion necesaria"); }
+
     if (count($errors) == 0) {
 
-        $bd->editarComentario($id, $texto);
+        $bd->editarProducto($id, $nombre, $subtitulo, $descripcion);
 
         header('location: listaProductos.php');
     }
 
   }
 
-  $comentario = $bd->getProducto($id);
-
-
+  $producto= $bd->getProducto($id);
 
   echo $twig->render('editar_producto.html', ['producto'=>$producto, 'errores' => $errors]);
 ?>
