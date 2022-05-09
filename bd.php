@@ -79,6 +79,10 @@
 			$res = $this->mysqli->query("DELETE FROM productos WHERE id=$id");
 		}
 
+    function insertarProducto($nombre, $subtitulo, $descripcion, $img_p, $img_1, $img_2){
+      $res = $this->mysqli->query("INSERT INTO productos(nombre, img_principal, subtitulo, texto) VALUES ('$nombre', '$img_p', '$subtitulo', '$descripcion')");
+    }
+
 
     //Palabras prohibidas
 

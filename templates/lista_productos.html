@@ -12,7 +12,7 @@
       <div class="imagen-principal"><img class="icono" src={{ producto.img_principal }} alt={{ item.nombre }}></div>
       <div class="nombre"><p>{{ producto['nombre'] }}</p></div>
       <div class="subtitulo"><p>{{ producto['subtitulo'] }}</p></div>
-      <div class="contenido"><p>{{ producto['contenido'] }}</p></div> 
+      <div class="contenido"><p>{{ producto['contenido']|nl2br }}</p></div> 
       <div class="editarBorrarComentario">
         <a href="/borrarProducto.php?id={{ producto['id'] }}"><img class="icono" src="https://icons-for-free.com/iconfiles/png/512/delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588.png" /></a>
         <a href="/editarProducto.php?id={{ producto['id'] }}"><img class="icono" src="https://cdn.iconscout.com/icon/free/png-256/edit-2653317-2202989.png" /></a>
