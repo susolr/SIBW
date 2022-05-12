@@ -14,12 +14,25 @@
             <div class="main-title">Musicalia</div>
             <nav class="nav-header">
                 <ul>
-                    <li>Home</li>
+                    <li><a href="index.php">Home</a></li>
                     <li>Ofertas</li>
                     <li>Más vendido</li>
                 </ul>
                 
             </nav>
+        </div>
+        <div class="buttons">
+            {% if user.tipo == -1 %} <!-- Si no hay usuario -->
+            <button type="button" id="login" onclick="location.href='login.php'">Iniciar sesión</button></br>
+            <button type="button" id="registro" onclick="location.href='signin.php'">Registrarse</button>
+
+            {% else %} <!-- Si hay usuario -->
+            <a href="modificar_datos_usuario.php">{{user.username}}</a></br>
+            <p><a href="logout.php">Cerrar sesión</a></p>
+                {% if user.tipo == 3 %}
+                <a href="adminUsers.php">Administrar Usuarios</a>
+                {% endif %}
+            {% endif %}
         </div>
     </header>
     {% block comentarios%}

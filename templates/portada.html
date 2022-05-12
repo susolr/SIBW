@@ -11,6 +11,9 @@
             <p class="element-title">{{ item.nombre }}</p>
         </a>
     {% endfor %}
+{% if user.tipo >=2 %}
+<a href="listaProductos.php"> Ver mas </a>
+{% endif %}
 </div>
 
 <aside>

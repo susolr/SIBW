@@ -6,10 +6,14 @@
   session_start();
 
   // initializing variables
-  $username = "";
+
   $errors = array();
   $bd= new bd;
-  $username = "susolr";
+  $username = "";
+  if(isset($_SESSION['user'])){
+    $username = $_SESSION['user']; // Almaceno el usuario
+  }
+  $user = $bd->encontrarUsuario($username);
   $id = 0;
 
   
@@ -37,5 +41,5 @@
 
 
 
-  echo $twig->render('editar_comentario.html', ['comentario'=>$comentario]);
+  echo $twig->render('editar_comentario.html', ['user' => $user, 'comentario'=>$comentario]);
 ?>

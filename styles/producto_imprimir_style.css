@@ -26,6 +26,11 @@
     grid-row: 1 ;
 }
 
+.buttons{
+    grid-column: 3;
+    grid-row:1;
+}
+
 .main-title{
     /*text-align:left;*/
     font-size: 50px;

@@ -21,6 +21,11 @@
     object-fit: cover;
 }
 
+.buttons{
+    grid-column: 3;
+    grid-row:1;
+}
+
 .title-menu{
     grid-column: 2  ;
     grid-row: 1 ;
@@ -104,12 +109,12 @@ main {
 }
 
 .img-editar{
-    width: 40%;
+    width: 20%;
     margin-top: 4%;
 }
 
 .icono{
-    width: 10%;
+    width: 5%;
 }
 
 .editar-usuario{
@@ -117,6 +122,10 @@ main {
 }
 
 .productos{
+    display:grid;
+}
+
+.comentarios{
     display:grid;
 }
 

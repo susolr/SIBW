@@ -4,14 +4,14 @@
   <script src="scripts/scripts.js"></script>
 {% endblock %}
  {% block main %}
- {% if usuario.tipo == 3  %}
-  {% for user in users %}
+ {% if user.tipo == 3  %}
+  {% for u in users %}
   <div class="panel">
     <div class="editarRol">
       <!-- <a href="/borrarComentario.php?id={{ comentario['id'] }}"><img src="https://icons-for-free.com/iconfiles/png/512/delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588.png" /></a> -->
-      <button type="button" class="editar-usuario" onclick="editarUsuario('{{ user.username }}')"><img class="img-editar" src="https://cdn.iconscout.com/icon/free/png-256/edit-2653317-2202989.png" /></button>
+      <button type="button" class="editar-usuario" onclick="editarUsuario('{{ u.username }}')"><img class="img-editar" src="https://cdn.iconscout.com/icon/free/png-256/edit-2653317-2202989.png" /></button>
 
-      <form id="{{ user.username }}" style="display:none" method="post" >
+      <form id="{{ u.username }}" style="display:none" method="post" >
         <select name="operacion" id="operacion">
           {% for tipo in tipos %}
             {% if tipo.id == user.tipo%}
@@ -28,9 +28,9 @@
       </form>
 
     </div>
-        <p>Usuario: {{ user.username}} </p>
-        <p>Nombre: {{ user['nombre'] }}</p>
-        <p>Tipo: {{ tipos[user.tipo].tipo}}</p>
+        <p>Usuario: {{ u.username}} </p>
+        <p>Nombre: {{ u['nombre'] }}</p>
+        <p>Tipo: {{ tipos[u.tipo].tipo}}</p>
 
   </div>
 

@@ -13,6 +13,11 @@
     $id = $_GET['id'];
   }
   $errors = array();
+  $username = "";
+  if(isset($_SESSION['user'])){
+    $username = $_SESSION['user']; // Almaceno el usuario
+  }
+  $user = $bd->encontrarUsuario($username);
 
   if (isset($_POST['publicar_comentario'])){
     $autor = $_POST['autor'];
@@ -29,7 +34,6 @@
   }
 
   $producto = $bd->getProducto($id);
-  $user = $bd->encontrarUsuario("susolr");
   $comentarios = $bd->getComentarios($id);
 
 

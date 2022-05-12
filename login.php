@@ -5,8 +5,14 @@
   $twig = new \Twig\Environment($loader);
   include("bd.php");
   session_start();
+  
   //require_once 'bdUsuarios.php';
   $bd=new bd();
+  $username = "";
+  if(isset($_SESSION['user'])){
+    $username = $_SESSION['user']; // Almaceno el usuario
+  }
+  $user = $bd->encontrarUsuario($username);
   if(isset($_POST['log_user'])){
     //printf("hola");
     //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -15,9 +21,8 @@
       // echo($nick . $pass);
 
       if ($bd->checkLogin($nick, $pass)) {
-        session_start();
 
-        $_SESSION['nickUsuario'] = $nick;  // guardo en la sesión el nick del usuario que se ha logueado
+        $_SESSION['user'] = $nick;  // guardo en la sesión el nick del usuario que se ha logueado
         // echo($nick);
       }
 
@@ -27,5 +32,5 @@
     //}
   }
 
-  echo $twig->render('login.html', []);
+  echo $twig->render('login.html', ['user' => $user]);
 ?>

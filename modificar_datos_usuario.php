@@ -9,8 +9,10 @@
   $username = "";
   $errors = array();
   $bd= new bd;
-  $username = "susolr";
-
+  $username = "";
+  if(isset($_SESSION['user'])){
+    $username = $_SESSION['user']; // Almaceno el usuario
+  }
   $user = $bd->encontrarUsuario($username);
 
   if (isset($_POST['modificar_datos'])) {

@@ -8,7 +8,11 @@
 
   $bd=new bd();
   $comments=$bd->getListaComentarios();
-  $user=$bd->encontrarUsuario("susolr");
+  $username = "";
+  if(isset($_SESSION['user'])){
+    $username = $_SESSION['user']; // Almaceno el usuario
+  }
+  $user = $bd->encontrarUsuario($username);
 
   echo $twig->render('lista_comentarios.html', ['user'=>$user,'comentarios'=>$comments]);
 ?>

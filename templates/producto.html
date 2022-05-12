@@ -18,6 +18,9 @@
         <p class="content"> {{comentario.texto}} </p>
     </div>
     {% endfor %}
+    {% if user.tipo == 1 or user.tipo == 3 %}
+        <a href="listaComentarios.php"> Todos los comentarios </a>
+    {% endif %}
     {% if user.tipo >= 0 %}
         <form id="formulario-comentario" class="formulario-comentario" method="post" action="producto.php">
             <label for="coment">Comentario:</label><br>

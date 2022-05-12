@@ -9,7 +9,11 @@
   $username = "";
   $errors = array();
   $bd= new bd;
-  $username = "susolr";
+  $username = "";
+  if(isset($_SESSION['user'])){
+    $username = $_SESSION['user']; // Almaceno el usuario
+  }
+  $user = $bd->encontrarUsuario($username);
   $id = 0;
 
   
@@ -39,5 +43,5 @@
 
   $producto= $bd->getProducto($id);
 
-  echo $twig->render('editar_producto.html', ['producto'=>$producto, 'errores' => $errors]);
+  echo $twig->render('editar_producto.html', ['user' => $user, 'producto'=>$producto, 'errores' => $errors]);
 ?>

@@ -7,7 +7,10 @@ $twig = new \Twig\Environment($loader);
 
   $bd=new bd();
   $usuarios=$bd->getListaUsuarios();
-  $username = "susolr";
+  $username = "";
+  if(isset($_SESSION['user'])){
+    $username = $_SESSION['user']; // Almaceno el usuario
+  }
   $user = $bd->encontrarUsuario($username);
   $tipos = $bd->getListaTipos();
 
@@ -19,11 +22,11 @@ $twig = new \Twig\Environment($loader);
 
       if(($bd->numSuperusuarios()>1 && $rol!=3 ) || $rol==3 || $old_tipo!=3){
         $bd->editarRol($usuario,$rol);
-        header('location: index.php');
+        header('location: adminUsers.php');
       }
       // $bd->editarRol($usuario,$rol);
 			// header("Refresh:0");
   }
 
-  echo $twig->render('adminUsers.html', ['usuario' => $user,'users'=>$usuarios, 'tipos' => $tipos]);
+  echo $twig->render('adminUsers.html', ['user' => $user,'users'=>$usuarios, 'tipos' => $tipos]);
 ?>

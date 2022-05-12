@@ -4,7 +4,7 @@
 {% endblock %}
 
  {% block main %}
- <form method="post" action="insertarProducto.php">
+ <form method="post" action="insertarProducto.php" enctype="multipart/form-data">
    <label for="nombre">Nombre:</label><br>
    <input type="text" id="nombre" name="nombre"><br>
    <label for="subtitulo">Subtitulo:</label><br>
@@ -13,11 +13,11 @@
    <input type="text" id="descripcion" name="descripcion"><br>
 
    <label for="img-principal">Imagen principal:</label><br>
-   <input type="text" id="imp-principal" name="img-principal"><br>
+   <input type="file" id="imp-principal" name="img-principal"><br>
    <label for="img-s1">Imagen segundaria:</label><br>
-   <input type="text" id="img-s1" name="img-s1"><br>
+   <input type="file" id="img-s1" name="img-s1"><br>
    <label for="img-s2">Imagen secundaria:</label><br>
-   <input type="text" id="img-s2" name="img-s2"><br>
+   <input type="file" id="img-s2" name="img-s2"><br>
 
    <button type="submit" class="comm_but" id="comm_but" name="insertar_producto">Insertar</button>
  </form>
