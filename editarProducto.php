@@ -42,6 +42,7 @@
   }
 
   $producto= $bd->getProducto($id);
+  $estados = $bd->getListaEstados();
 
-  echo $twig->render('editar_producto.html', ['user' => $user, 'producto'=>$producto, 'errores' => $errors]);
+  echo $twig->render('editar_producto.html', ['user' => $user, 'producto'=>$producto, 'errores' => $errors, 'estados' => $estados]);
 ?>

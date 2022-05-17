@@ -5,21 +5,17 @@
 <script src="scripts/ajax.js"></script>
 {% endblock %}
  {% block main %}
+
+ <div class="productos">
  {% if user.tipo >= 2 %}
-  <div class="productos">
+
   {% for producto in productos %}
     <div class="panel">
       <div class="imagen-principal"><img class="icono" src={{ producto.img_principal }} alt={{ item.nombre }}></div>
       <div class="nombre"><p>{{ producto['nombre'] }}</p></div>
       <div class="subtitulo"><p>{{ producto['subtitulo'] }}</p></div>
       <div class="contenido"><p>{{ producto['contenido']|nl2br }}</p></div> 
-      <div class="publicado">
-        {% if producto.publicado != 0 %}
-          <p> Publicado </p>
-        {% else %}
-          <p> No publicado </p>
-        {% endif %}
-      </div>
+      <div class="publicado"><p>{{ estados[producto.publicado].estado}}</p></div>
       <div class="editarBorrarProducto">
         <a href="/borrarProducto.php?id={{ producto['id'] }}"><img class="icono" src="https://icons-for-free.com/iconfiles/png/512/delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588.png" /></a>
         <a href="/editarProducto.php?id={{ producto['id'] }}"><img class="icono" src="https://cdn.iconscout.com/icon/free/png-256/edit-2653317-2202989.png" /></a>
@@ -41,6 +37,7 @@
       <br><br>
       {% endif %}
     {% endfor %}
+  
   {% endif %}
-  </div>
+</div>
  {% endblock %}

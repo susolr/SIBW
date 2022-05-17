@@ -31,17 +31,19 @@
 
     function getProducto ($idPro){
 
-      $stmt = $this->mysqli->prepare("SELECT nombre, subtitulo, texto FROM productos WHERE id = ? ");
+      $stmt = $this->mysqli->prepare("SELECT nombre, subtitulo, texto, publicado FROM productos WHERE id = ? ");
       $stmt->bind_param("i", $idPro);
       $stmt->execute();
       $res = $stmt->get_result();
       $subtitulo = "Subtitulo no disponible";
       $contenido = "Contenido no disponible";
+      $publicado = 0;
       if ($res->num_rows > 0) {
         $row = $res->fetch_assoc();
         $nombre = $row['nombre'];
         $contenido = $row['texto'];
         $subtitulo = $row['subtitulo'];
+        $publicado =$row['publicado'];
       }
       
       $stmt->close();
@@ -69,7 +71,7 @@
 
       $stmt->close();
 
-      $producto = array('id' => $idPro, 'nombre' => $nombre, 'img_1' => $img_1, 'img_2' => $img_2, 'subtitulo' => $subtitulo, 'contenido' => $contenido);
+      $producto = array('id' => $idPro, 'nombre' => $nombre, 'img_1' => $img_1, 'img_2' => $img_2, 'subtitulo' => $subtitulo, 'contenido' => $contenido, 'publicado' => $publicado);
       
       return $producto;
 
@@ -99,6 +101,15 @@
 
     function editarProducto($id, $nombre, $subtitulo, $descripcion){
       $this->mysqli->query("UPDATE productos SET nombre='$nombre', subtitulo='$subtitulo', texto='$descripcion' WHERE id=$id");
+    }
+
+    function getListaEstados(){
+      $res=$this->mysqli->query("SELECT * FROM estadoproducto");
+      $arr = [];
+      while($row = $res->fetch_assoc()){
+        $arr[]= array('estado' => $row['estado'], 'id' => $row['id']);
+      }
+      return $arr;
     }
 
 

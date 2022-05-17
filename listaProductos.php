@@ -13,6 +13,7 @@
     $username = $_SESSION['user']; // Almaceno el usuario
   }
   $user = $bd->encontrarUsuario($username);
+  $estados = $bd->getListaEstados();
 
-  echo $twig->render('lista_productos.html', ['user'=>$user,'productos'=>$productos]);
+  echo $twig->render('lista_productos.html', ['user'=>$user,'productos'=>$productos, 'estados' => $estados]);
 ?>

@@ -1,10 +1,14 @@
+CREATE TABLE estadoproducto(
+  id INT PRIMARY KEY,
+  estado VARCHAR(20)
+)
 CREATE TABLE productos(
   id INT AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(100),
   img_principal VARCHAR(100),
   subtitulo VARCHAR(100),
   texto TEXT,
-  publicado INT DEFAULT 0
+  publicado INT REFERENCES estadoproducto(id)
 )
 
 CREATE TABLE imagenes(
@@ -16,7 +20,7 @@ CREATE TABLE imagenes(
 
 CREATE TABLE tipousuario(
   id INT PRIMARY KEY,
-  tipo VARCHAR(20) PRIMARY KEY,
+  tipo VARCHAR(20),
 )
 
 CREATE TABLE usuarios(

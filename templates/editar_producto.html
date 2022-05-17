@@ -4,24 +4,34 @@
 {% endblock %}
 
  {% block main %}
- <form method="post" action="editarProducto.php">
-   <label for="nombre">Nombre:</label><br>
-   <input type="text" id="nombre" name="nombre" value="{{producto.nombre}}"><br>
-   <label for="subtitulo">Subtitulo:</label><br>
-   <input type="text" id="subtitulo" name="subtitulo" value="{{producto.subtitulo}}"><br>
-   <label for="descripcion">Descripcion:</label><br>
-   <textarea cols="200" rows="15" id="descripcion" name="descripcion" value="{{producto.contenido}}" > {{producto.contenido}} </textarea> <br>
+ {%if user.tipo >= 2%}
+    <form method="post" action="editarProducto.php">
+      <label for="nombre">Nombre:</label><br>
+      <input type="text" id="nombre" name="nombre" value="{{producto.nombre}}"><br>
+      <label for="subtitulo">Subtitulo:</label><br>
+      <input type="text" id="subtitulo" name="subtitulo" value="{{producto.subtitulo}}"><br>
+      <label for="descripcion">Descripcion:</label><br>
+      <textarea cols="200" rows="15" id="descripcion" name="descripcion" value="{{producto.contenido}}" > {{producto.contenido}} </textarea> <br>
+      <select name="publicado" id="publicado">
+        {% for estado in estados %}
+          {% if estado.id == producto.publicado %}
+            <option value={{estado.id}} selected>{{estado.estado}}</option>
+          {%else %}
+            <option value={{estado.id}}>{{estado.estado}}</option>
+          {% endif%}
+        {% endfor %}
+      </select><br />
 
-   <input type="hidden" name="id" value="{{ producto.id }}">
+      <input type="hidden" name="id" value="{{ producto.id }}">
 
-   <div class="imagen-principal"><img class="icono" src={{ producto.img_1 }} ></div>
-   <div class="imagen-principal"><img class="icono" src={{ producto.img_2 }} ></div>
+      <div class="imagen-principal"><img class="icono" src={{ producto.img_1 }} ></div>
+      <div class="imagen-principal"><img class="icono" src={{ producto.img_2 }} ></div>
 
-   <button type="submit" class="comm_but" id="comm_but" name="modificar_producto">Guardar</button>
- </form>
+      <button type="submit" class="comm_but" id="comm_but" name="modificar_producto">Guardar</button>
+    </form>
 
- {% for error in errores%}
-    <p> {{error}} </p>
- {% endfor %}
- 
+    {% for error in errores%}
+        <p> {{error}} </p>
+    {% endfor %}
+  {% endif %}
  {% endblock %}
