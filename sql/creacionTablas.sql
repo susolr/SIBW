@@ -3,7 +3,8 @@ CREATE TABLE productos(
   nombre VARCHAR(100),
   img_principal VARCHAR(100),
   subtitulo VARCHAR(100),
-  texto TEXT
+  texto TEXT,
+  publicado INT DEFAULT 0
 )
 
 CREATE TABLE imagenes(
@@ -34,6 +35,7 @@ CREATE TABLE comentarios(
   autor INT,
   fecha DATETIME,
   texto TEXT,
+  modificado INT DEFAULT 0,
   FOREIGN KEY (producto) REFERENCES productos(id),
   FOREIGN KEY (autor) REFERENCES usuarios(id)
 )

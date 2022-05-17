@@ -22,7 +22,7 @@
       $result = $stmt->get_result();
 
       while($row = $result->fetch_assoc()){
-        $prod = array('id'=> $row['id'], 'nombre' => $row['nombre'], 'img_principal' => $row['img_principal'], 'subtitulo' => $row['subtitulo'], 'contenido' => $row['texto']);
+        $prod = array('id'=> $row['id'], 'nombre' => $row['nombre'], 'img_principal' => $row['img_principal'], 'subtitulo' => $row['subtitulo'], 'contenido' => $row['texto'], 'publicado' => $row['publicado']);
         $arr[] = $prod;
       }
       $stmt->close();
