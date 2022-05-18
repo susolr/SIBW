@@ -83,7 +83,7 @@
 		}
 
     function insertarProducto($nombre, $subtitulo, $descripcion, $img_p, $img_1, $img_2){
-      $this->mysqli->query("INSERT INTO productos(nombre, img_principal, subtitulo, texto) VALUES ('$nombre', '$img_p', '$subtitulo', '$descripcion')");
+      $this->mysqli->query("INSERT INTO productos(nombre, img_principal, subtitulo, texto, publicado) VALUES ('$nombre', '$img_p', '$subtitulo', '$descripcion', 1)");
 
       $res = $this->mysqli->query("SELECT id FROM productos WHERE nombre='$nombre' ORDER BY id DESC");
       $row = $res->fetch_assoc();
@@ -99,8 +99,8 @@
 
     }
 
-    function editarProducto($id, $nombre, $subtitulo, $descripcion){
-      $this->mysqli->query("UPDATE productos SET nombre='$nombre', subtitulo='$subtitulo', texto='$descripcion' WHERE id=$id");
+    function editarProducto($id, $nombre, $subtitulo, $descripcion, $publicado){
+      $this->mysqli->query("UPDATE productos SET nombre='$nombre', subtitulo='$subtitulo', texto='$descripcion', publicado=$publicado WHERE id=$id");
     }
 
     function getListaEstados(){

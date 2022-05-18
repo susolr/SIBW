@@ -27,6 +27,7 @@
     $nombre = $_POST['nombre'];
     $subtitulo = $_POST['subtitulo'];
     $descripcion = $_POST['descripcion'];
+    $publicado = $_POST['publicado'];
 
     if (empty($nombre)) { array_push($errors, "Nombre necesario"); }
     if (empty($subtitulo)) { array_push($errors, "Subtitulo necesario"); }
@@ -34,7 +35,7 @@
 
     if (count($errors) == 0) {
 
-        $bd->editarProducto($id, $nombre, $subtitulo, $descripcion);
+        $bd->editarProducto($id, $nombre, $subtitulo, $descripcion, $publicado);
 
         header('location: listaProductos.php');
     }
