@@ -7,18 +7,19 @@ $(document).ready(function() {
 
     if(str.length == 0){
         $("#results").css("display", "none");
+        $("")
         return;
     }
       
-      $.ajax({
-         data: {str},
-         url: 'buscarProductos.php',
-         type: 'get',
-         success: function(respuesta) {
-           procesaRespuestaAjax(respuesta);
-           $("#mensaje").hide();
-         }
-      });
+    $.ajax({
+        data: {str},
+        url: 'buscarProductos.php',
+        type: 'get',
+        success: function(respuesta) {
+          procesaRespuestaAjax(respuesta);
+          $("#mensaje").hide();
+        }
+    });
   }
   
   function procesaRespuestaAjax(respuesta) {
