@@ -27,12 +27,21 @@ $(document).ready(function() {
   function procesaRespuestaAjax(respuesta) {
       res = "";
       console.log("Respuesta " + respuesta);
-      for (i = 0 ; i < respuesta.length ; i++) {
+      if (respuesta.length>0 && respuesta!="null"){
+        for (i = 0 ; i < respuesta.length ; i++) {
           res += "<div class=panel> <div class=nombre>" + respuesta[i].nombre + "</div></div>";
+        }
+        console.log("Res " + res);
+        
+        
       }
-      console.log("Res " + res);
-      $("#results").html(res);
+      else{
+        $("#results").html("No hay productos");
+      }
+
       $("#results").css("display", "grid");
       $("#productos_list").css("display", "none");
+      
+      
   }
   
