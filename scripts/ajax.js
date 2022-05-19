@@ -1,17 +1,19 @@
 $(document).ready(function() {
-    boton.onclick = hacerPeticionAjax;    
+    searchbar.onkeyup = hacerPeticionAjax;    
   });
   
   function hacerPeticionAjax() {
-      num = $("#numElems").val();
+      var str = $("#searchbar").val();
+
+    if(str.length == 0){
+        $("#results").css("display", "none");
+        return;
+    }
       
       $.ajax({
-         data: {num},
-         url: 'ajax.php',
+         data: {str},
+         url: 'buscarProductos.php',
          type: 'get',
-         beforeSend: function () {
-           $("#mensaje").show();
-         },
          success: function(respuesta) {
            procesaRespuestaAjax(respuesta);
            $("#mensaje").hide();

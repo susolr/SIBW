@@ -51,6 +51,12 @@
         </div>
     </div>
     <p> {{ producto.contenido|nl2br }} </p>
+    {% if user.tipo >= 2 %}
+    <div class="editarBorrarProducto">
+        <a href="/borrarProducto.php?id={{ producto['id'] }}"><img class="icono" src="https://icons-for-free.com/iconfiles/png/512/delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588.png" /></a>
+        <a href="/editarProducto.php?id={{ producto['id'] }}"><img class="icono" src="https://cdn.iconscout.com/icon/free/png-256/edit-2653317-2202989.png" /></a>
+    </div>
+    {% endif %}
    
     <a class="imprimir" href="producto_imprimir.php" target="_blank">Imprimir</a>
     <button type="button" class="mostrar-comentarios" onclick="mostrarComentariosPanel({{producto.id}})">&#9776; Comentarios</button>

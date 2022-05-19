@@ -6,8 +6,13 @@
 {% endblock %}
  {% block main %}
  
+ <input type="text" id="searchbar" name="searchbar"><br>
 
- <div class="productos">
+ <div class="results" id="results">
+  
+ </div>
+
+ <div class="productos" id="productos">
  {% if user.tipo >= 2 %}
 
   {% for producto in productos %}
@@ -17,14 +22,13 @@
       <div class="subtitulo"><p>{{ producto['subtitulo'] }}</p></div>
       <div class="contenido"><p>{{ producto['contenido']|nl2br }}</p></div> 
       <div class="publicado"><p>{{ estados[producto.publicado].estado}}</p></div>
-      <div class="editarBorrarProducto">
-        <a href="/borrarProducto.php?id={{ producto['id'] }}"><img class="icono" src="https://icons-for-free.com/iconfiles/png/512/delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588.png" /></a>
-        <a href="/editarProducto.php?id={{ producto['id'] }}"><img class="icono" src="https://cdn.iconscout.com/icon/free/png-256/edit-2653317-2202989.png" /></a>
+      <div class="irA">
+        <a href="producto.php?id={{producto.id}}">Ver producto</a>
       </div>
     </div>
     <br><br>
   {% endfor %}
-  <a href="/insertarProducto.php"><img class="icono" src="/images/simbolo_mas.png" /><p class="insertar"> Insertar Producto</p></a>
+  
   
   {% else %}
     {% for producto in productos %}
@@ -34,11 +38,20 @@
         <div class="nombre"><p>{{ producto['nombre'] }}</p></div>
         <div class="subtitulo"><p>{{ producto['subtitulo'] }}</p></div>
         <div class="contenido"><p>{{ producto['contenido']|nl2br }}</p></div> 
+        <div class="irA">
+          <a href="producto.php?id={{producto.id}}">Ver producto</a>
+        </div>
       </div>
       <br><br>
       {% endif %}
     {% endfor %}
   
   {% endif %}
+  
 </div>
+
+{% if user.tipo >= 2 %}
+    <a href="/insertarProducto.php"><img class="icono" src="/images/simbolo_mas.png" /><p class="insertar"> Insertar Producto</p></a>
+{% endif %}
+  
  {% endblock %}

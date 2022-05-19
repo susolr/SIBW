@@ -77,6 +77,26 @@
 
     }
 
+    function buscarProductos($str,$tipo){
+      if($tipo >= 2){
+          $sql = "SELECT * FROM productos WHERE (nombre LIKE ? OR subtitulo LIKE ? OR texto LIKE ?)";
+      }
+      else{
+          $sql = "SELECT * FROM productos WHERE (publicado = 1 AND (nombre LIKE ? OR subtitulo LIKE ? OR texto LIKE ?))";
+      }
+      $str = "%".$str."%";
+      $stmt = $this->mysqli->prepare($sql);
+      $stmt->bind_param("sss",$str,$str,$str);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      while($row = $result->fetch_assoc()){
+        $prod = array('id'=> $row['id'], 'nombre' => $row['nombre'], 'img_principal' => $row['img_principal'], 'subtitulo' => $row['subtitulo'], 'contenido' => $row['texto'], 'publicado' => $row['publicado']);
+        $arr[] = $prod;
+      }
+      $stmt->close();
+      return $arr;
+  }
+
     function borrarProducto($id){
       $this->mysqli->query("DELETE FROM imagenes WHERE producto=$id");
 			$this->mysqli->query("DELETE FROM productos WHERE id=$id");

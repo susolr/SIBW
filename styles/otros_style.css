@@ -100,7 +100,7 @@ footer{
 
 main {
     margin-top: 2%;
-    display: flex;
+    display: grid;
     margin-bottom: 4%;
 }
 
@@ -136,4 +136,13 @@ main {
 .insertar{
     text-decoration: none;
     color: black;
+}
+
+.botonaniadir{
+    position: fixed;
+    bottom: 0;
+}
+
+.results{
+    display:none;
 }
