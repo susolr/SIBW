@@ -1,13 +1,16 @@
 $(document).ready(function() {
-    searchbar.onkeyup = hacerPeticionAjax;    
+    searchbar.oninput = hacerPeticionAjax;  
+    console.log("Preparando");  
   });
   
   function hacerPeticionAjax() {
       var str = $("#searchbar").val();
+      console.log("Buscando: " + str);
 
-    if(str.length == 0){
+    if(str.length === 0){
         $("#results").css("display", "none");
-        $("")
+        $("#productos_list").css("display", "grid");
+        console.log("Busqueda vacia. Mostrando todos los productos")
         return;
     }
       
@@ -17,18 +20,19 @@ $(document).ready(function() {
         type: 'get',
         success: function(respuesta) {
           procesaRespuestaAjax(respuesta);
-          $("#mensaje").hide();
         }
     });
   }
   
   function procesaRespuestaAjax(respuesta) {
       res = "";
-      
+      console.log("Respuesta " + respuesta);
       for (i = 0 ; i < respuesta.length ; i++) {
-          res += "<tr><td>" + respuesta[i].obj + "</td><td>" + respuesta[i].cant + "</td></tr>\n";
+          res += "<div class=panel> <div class=nombre>" + respuesta[i].nombre + "</div></div>";
       }
-      
-      $("#tabla > tbody").html(res);
+      console.log("Res " + res);
+      $("#results").html(res);
+      $("#results").css("display", "grid");
+      $("#productos_list").css("display", "none");
   }
   
