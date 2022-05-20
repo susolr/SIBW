@@ -271,16 +271,15 @@
 
     function buscarComentarios($str){
 
-      $sql = "SELECT * FROM comentarios WHERE (nombre LIKE ? OR subtitulo LIKE ? OR texto LIKE ?)";
+      $sql = "SELECT id FROM comentarios WHERE (autor IN (SELECT id FROM usuarios WHERE (username LIKE ? )) OR producto IN (SELECT id FROM productos WHERE(nombre LIKE ?)) OR fecha LIKE ? OR texto LIKE ? )";
 
       $str = "%".$str."%";
       $stmt = $this->mysqli->prepare($sql);
-      $stmt->bind_param("sss",$str,$str,$str);
+      $stmt->bind_param("ssss",$str,$str,$str, $str);
       $stmt->execute();
-      $result = $stmt->get_result();
-      while($row = $result->fetch_assoc()){
-        $prod = array('id'=> $row['id'], 'nombre' => $row['nombre'], 'img_principal' => $row['img_principal'], 'subtitulo' => $row['subtitulo'], 'contenido' => $row['texto'], 'publicado' => $row['publicado']);
-        $arr[] = $prod;
+      $res = $stmt->get_result();
+      while($row = $res->fetch_assoc()){
+        $arr[]=  $this->getComentario($row['id']);
       }
       $stmt->close();
       return $arr;

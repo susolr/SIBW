@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block head %}
 <link rel="stylesheet" href="styles/otros_style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="scripts/buscarComentarios.js"></script>
 {% endblock %}
  {% block main %}
  {% if user.tipo == 1 or user.tipo == 3 %}
@@ -9,7 +11,7 @@
  <div class="results" id="results">
   
  </div>
- <div class="comentarios">
+ <div class="comentarios_list" id="comentarios_list">
   {% for comentario in comentarios %}
     <div class="panel">
       <p>{{ comentario['producto'] }}</p>

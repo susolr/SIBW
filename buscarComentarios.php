@@ -12,10 +12,10 @@
   }
   $user = $bd->encontrarUsuario($username);
   $str = $_GET["str"];
-  $comentarios = "";
+  $comentarios= null;
   if ($user['tipo'] == 1 or $user['tipo'] == 3 ){
     $comentarios = $bd->buscarComentarios($str);
   }
   // echo($_GET["id"]);
-  echo (json_encode($productos));
+  echo (json_encode($comentarios));
 ?>
