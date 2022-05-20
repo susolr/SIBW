@@ -3,7 +3,12 @@
 <link rel="stylesheet" href="styles/otros_style.css">
 {% endblock %}
  {% block main %}
- {% if user.tipo >= 1 %}
+ {% if user.tipo == 1 or user.tipo == 3 %}
+ <input type="text" id="searchbar" name="searchbar"><br>
+
+ <div class="results" id="results">
+  
+ </div>
  <div class="comentarios">
   {% for comentario in comentarios %}
     <div class="panel">

@@ -95,7 +95,7 @@
       }
       $stmt->close();
       return $arr;
-  }
+    }
 
     function borrarProducto($id){
       $this->mysqli->query("DELETE FROM imagenes WHERE producto=$id");
@@ -267,6 +267,23 @@
 
       return $comentario;
 
+    }
+
+    function buscarComentarios($str){
+
+      $sql = "SELECT * FROM comentarios WHERE (nombre LIKE ? OR subtitulo LIKE ? OR texto LIKE ?)";
+
+      $str = "%".$str."%";
+      $stmt = $this->mysqli->prepare($sql);
+      $stmt->bind_param("sss",$str,$str,$str);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      while($row = $result->fetch_assoc()){
+        $prod = array('id'=> $row['id'], 'nombre' => $row['nombre'], 'img_principal' => $row['img_principal'], 'subtitulo' => $row['subtitulo'], 'contenido' => $row['texto'], 'publicado' => $row['publicado']);
+        $arr[] = $prod;
+      }
+      $stmt->close();
+      return $arr;
     }
 
     function getListaComentarios(){

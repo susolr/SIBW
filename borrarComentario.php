@@ -6,7 +6,7 @@
   $loader = new \Twig\Loader\FilesystemLoader('templates');
   $twig = new \Twig\Environment($loader);
   $bd=new bd();
-
+  session_start();
   $bd->borrarComentario($_GET["id"]);
   // echo($_GET["id"]);
   header("Location: /listaComentarios.php");

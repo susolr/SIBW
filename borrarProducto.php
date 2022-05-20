@@ -6,6 +6,7 @@
   $loader = new \Twig\Loader\FilesystemLoader('templates');
   $twig = new \Twig\Environment($loader);
   $bd=new bd();
+  session_start();
   if(isset($_SESSION['user'])){
     $username = $_SESSION['user']; // Almaceno el usuario
   }
